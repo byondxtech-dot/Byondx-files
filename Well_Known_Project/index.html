@@ -1,0 +1,4379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ByondX Technologies | Home page</title>
+
+<link rel="icon" type="image/png" href="assets/BRAND IDENTITY.jpg">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* Base Theme */
+  body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Light Grey Section */
+  .section-grey {
+    background-color: #F8F8F8;
+  }
+
+  /* Navbar - Transparent at top, glass effect on scroll */
+  .navbar-transparent {
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Button Styles with Slide Animation */
+  .btn-primary {
+    background-color: #000000;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary:active, .btn-primary:focus {
+    background-color: #1a1a1a;
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+    outline-offset: 2px;
+  }
+
+  /* Accent Colors */
+  .text-blue { color: #3A7BFF; }
+  .text-mint { color: #4DF2C0; }
+  .text-purple { color: #B39DFF; }
+
+  .bg-blue { background-color: #3A7BFF; }
+  .bg-mint { background-color: #4DF2C0; }
+  .bg-purple { background-color: #B39DFF; }
+
+  /* Hero Gradient */
+  .hero-gradient {
+    background: linear-gradient(135deg, #B39DFF 0%, #3A7BFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Scroll Container */
+  .scroll-container {
+    overflow: hidden;
+    height: 520px;
+    position: relative;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+    border-radius: 16px;
+  }
+
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    width: 100%;
+  }
+
+  @keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  @keyframes scrollDown {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+  }
+
+  .scroll-up {
+    animation: scrollUp linear infinite;
+    animation-duration: 25s;
+    transition: animation-duration 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-down {
+    animation: scrollDown linear infinite;
+    animation-duration: 20s;
+    transition: animation-duration 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-container:hover .scroll-up,
+  .scroll-container:hover .scroll-down {
+    animation-duration: 80s;
+  }
+
+  .scroll-img {
+    border-radius: 12px;
+    width: 90%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-img:hover {
+    transform: scale(1.03);
+  }
+
+  /* Footer */
+  .footer-black {
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+
+  .footer-link {
+    color: #4DF2C0;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #3A7BFF;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #3A7BFF;
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4DF2C0;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .scroll-container {
+      height: 380px;
+    }
+    
+    .scroll-img {
+      height: 160px;
+    }
+    
+    .hero-heading {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    
+    /* Prevent body scroll when mobile menu is open */
+    body.menu-open {
+      overflow: hidden;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  /* Smooth transitions */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Underline effect for nav links */
+  .nav-underline {
+    position: relative;
+  }
+
+  .nav-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3A7BFF;
+    transition: width 0.3s ease;
+  }
+
+  .nav-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Simple button animation */
+  .btn-animate {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-animate .btn-text {
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-animate::after {
+    content: attr(data-hover);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-animate:hover .btn-text {
+    transform: translateY(-200%);
+  }
+
+  .btn-animate:hover::after {
+    transform: translateY(-100%);
+  }
+
+  /* Enhanced Mobile Menu Styles */
+  #mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    padding-top: 70px;
+  }
+
+  #mobile-menu.menu-open {
+    right: 0;
+  }
+
+  /* Mobile menu scrollable content */
+  .mobile-menu-content {
+    padding: 20px 24px 40px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Close button for mobile menu */
+  .mobile-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-close-btn:hover {
+    background: #3A7BFF;
+  }
+
+  .mobile-close-btn:hover svg {
+    stroke: white;
+  }
+
+  /* Enhanced mobile menu links */
+  .mobile-menu-link {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-link:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu-link:hover {
+    color: #3A7BFF;
+    padding-left: 10px;
+  }
+
+  /* Mobile menu buttons */
+  .mobile-menu-buttons {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+  }
+
+  /* Tablet view - burger menu visible */
+  @media (max-width: 1023px) {
+    .desktop-nav, .desktop-buttons {
+      display: none !important;
+    }
+    
+    .mobile-menu-btn {
+      display: block !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-menu-btn, #mobile-menu, .mobile-menu-overlay {
+      display: none !important;
+    }
+  }
+
+  /* ========== TWO-LEVEL MEGA MENU STYLES ========== */
+  .mega-menu-container {
+    position: relative;
+  }
+
+  .mega-menu {
+    position: absolute;
+    top: 200%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 800px;
+    max-width: 95vw;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    min-height: 500px;
+    max-height: 600px;
+  }
+
+  .mega-menu-container:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Left Side - Categories */
+  .mega-menu-left {
+    width: 280px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 24px 0;
+    overflow-y: auto;
+  }
+
+  .category-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+  }
+
+  .category-item:hover {
+    background: rgba(58, 123, 255, 0.05);
+    color: #3A7BFF;
+    border-left-color: #3A7BFF;
+  }
+
+  .category-item.active {
+    background: white;
+    color: #3A7BFF;
+    border-left-color: #3A7BFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .category-item i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+  }
+
+  .category-item:hover i,
+  .category-item.active i {
+    color: #3A7BFF;
+  }
+
+  /* Right Side - Subcategories */
+  .mega-menu-right {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .subcategory-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .subcategory-panel.active {
+    display: block;
+  }
+
+  .subcategory-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .subcategory-header h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .subcategory-header i {
+    color: #3A7BFF;
+    font-size: 20px;
+  }
+
+  .subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .subcategory-column h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .subcategory-column h5 i {
+    color: #3A7BFF;
+    font-size: 13px;
+  }
+
+  .subcategory-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .subcategory-column li {
+    margin-bottom: 10px;
+  }
+
+  .subcategory-column a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    text-decoration: none;
+    padding: 8px 0;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    padding-left: 8px;
+  }
+
+  .subcategory-column a:hover {
+    color: #3A7BFF;
+    background-color: rgba(58, 123, 255, 0.05);
+    padding-left: 12px;
+  }
+
+  .subcategory-column a i {
+    width: 16px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+  }
+
+  .subcategory-column a:hover i {
+    color: #3A7BFF;
+  }
+
+  /* Video Categories Special Grid */
+  .video-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .video-category-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .video-category-item:hover {
+    background: white;
+    border-color: rgba(58, 123, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .video-category-item i {
+    display: block;
+    font-size: 20px;
+    color: #3A7BFF;
+    margin-bottom: 8px;
+  }
+
+  .video-category-item span {
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* Arrow indicator */
+  .nav-link-with-menu {
+    position: relative;
+    padding-right: 18px;
+  }
+
+  .nav-link-with-menu::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: #3A7BFF;
+    transition: all 0.3s ease;
+  }
+
+  .mega-menu-container:hover .nav-link-with-menu::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  /* ========== WHY US MEGA MENU ========== */
+  .why-us-mega-menu {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    width: 360px;
+    max-width: 90vw;
+  }
+
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .why-us-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+
+  .why-us-feature i {
+    color: #3A7BFF;
+    background-color: rgba(58, 123, 255, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .why-us-feature span {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  /* CTA in Why Us */
+  .why-us-cta {
+    background: linear-gradient(to right, #3A7BFF, #4DF2C0);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    margin-top: 16px;
+  }
+
+  .why-us-cta h4 {
+    color: white !important;
+    border: none !important;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .why-us-cta p {
+    font-size: 14px;
+    opacity: 0.95;
+    margin-bottom: 16px;
+  }
+
+  .why-us-cta .btn-animate {
+    background: white;
+    color: #3A7BFF;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  /* ========== RESPONSIVE ADJUSTMENTS ========== */
+  @media (max-width: 768px) {
+    .mega-menu {
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      width: 95vw;
+      max-height: 70vh;
+      border-radius: 12px;
+      flex-direction: column;
+      min-height: auto;
+    }
+    
+    .mega-menu-left {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    
+    .category-item {
+      padding: 12px 20px;
+      font-size: 13px;
+    }
+    
+    .subcategory-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .video-categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ========== MOBILE DROPDOWN STYLES ========== */
+  .mobile-dropdown {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .mobile-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobile-dropdown-header i {
+    transition: transform 0.3s ease;
+    color: #3A7BFF;
+  }
+
+  .mobile-dropdown-header.active i {
+    transform: rotate(180deg);
+  }
+
+  .mobile-dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-left: 20px;
+  }
+
+  .mobile-dropdown-content.active {
+    max-height: 1000px;
+    padding-bottom: 16px;
+  }
+
+  .mobile-submenu {
+    padding: 8px 0;
+  }
+
+  .mobile-submenu h5 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-submenu h5 i {
+    font-size: 14px;
+  }
+
+  .mobile-submenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+  }
+
+  .mobile-submenu li {
+    margin-bottom: 6px;
+  }
+
+  .mobile-submenu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+    text-decoration: none;
+    padding: 6px 0;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    padding-left: 8px;
+  }
+
+  .mobile-submenu a:hover {
+    color: #3A7BFF;
+    background-color: rgba(58, 123, 255, 0.05);
+    padding-left: 12px;
+  }
+
+  .mobile-submenu a i {
+    width: 18px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  /* Mobile Why Us Content */
+  .mobile-why-us-features {
+    margin-top: 12px;
+  }
+
+  .mobile-why-us-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-why-us-feature i {
+    color: #3A7BFF;
+    font-size: 14px;
+  }
+
+  .mobile-why-us-feature span {
+    font-size: 14px;
+    color: #333;
+  }
+
+  /* Mobile CTA */
+  .mobile-cta {
+    background: linear-gradient(to right, #3A7BFF, #4DF2C0);
+    border-radius: 8px;
+    padding: 16px;
+    color: white;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .mobile-cta h5 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-cta p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+  }
+
+  /* Mobile dropdown animations */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-dropdown-content.active .mobile-submenu {
+    animation: slideDown 0.3s ease forwards;
+    opacity: 0;
+    animation-delay: calc(var(--item-index, 0) * 0.05s);
+  }
+
+  /* Hide mega menu on mobile */
+  @media (max-width: 767px) {
+    .mega-menu-container .mega-menu {
+      display: none;
+    }
+    
+    .mega-menu-container:hover .mega-menu {
+      display: none;
+    }
+  }
+
+  /* Service Page Styles */
+  .service-hero {
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+    padding: 100px 0 60px;
+    margin-top: 0;
+  }
+
+  .service-icon {
+    font-size: 48px;
+    color: #3A7BFF;
+    margin-bottom: 20px;
+  }
+
+  .service-feature-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+
+  .service-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(58, 123, 255, 0.1);
+    border-color: #3A7BFF;
+  }
+
+  .process-step {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 30px;
+  }
+
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #3A7BFF, #4DF2C0);
+  }
+
+  .process-step-number {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #3A7BFF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(58, 123, 255, 0.15);
+  }
+</style>
+</head>
+<body class="text-black overflow-x-hidden">
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+<!-- Responsive Header -->
+<header id="navbar" class="navbar-transparent fixed w-full z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-4">
+  <a href="index.html">  <div style="display: flex; align-items: center; gap: 10px;">
+
+        <!-- Rounded Logo -->
+        <div>
+            <img src="assets/BRAND IDENTITY.jpg" width="40px" 
+                style="border-radius: 50%; object-fit: cover;" alt="">
+        </div>
+
+        <!-- Text Column -->
+        <div style="display: flex; flex-direction: column; line-height: 1.1;">
+            <h1 class="text-black sm:text-lg font-bold text-blue">
+                ByondX Technologies
+            </h1>
+            <p class="text-xs text-gray-600">Future-ready IT studio</p>
+        </div>
+
+    </div>  </a>
+
+
+    <!-- Desktop Menu -->
+    <nav class="desktop-nav hidden lg:flex space-x-8 text-sm">
+      <!-- Services with Two-Level Mega Menu -->
+      <div class="mega-menu-container">
+        <a href="#" class=" hover:text-blue smooth-transition nav-link-with-menu">Services</a>
+        <div class="mega-menu">
+          <!-- Left Side - Categories -->
+          <div class="mega-menu-left">
+            <div class="category-item active" data-category="ai">
+              <i class="fas fa-robot"></i>
+              <span>AI & Automation</span>
+            </div>
+            <div class="category-item" data-category="digital-marketing">
+              <i class="fas fa-bullhorn"></i>
+              <span>Digital Marketing</span>
+            </div>
+            <div class="category-item" data-category="web">
+              <i class="fas fa-globe"></i>
+              <span>Web Development</span>
+            </div>
+            <div class="category-item" data-category="creative">
+              <i class="fas fa-palette"></i>
+              <span>Creative Design</span>
+            </div>
+            <div class="category-item" data-category="video">
+              <i class="fas fa-video"></i>
+              <span>Video Editing</span>
+            </div>
+            <div class="category-item" data-category="marketplace">
+              <i class="fas fa-store"></i>
+              <span>Marketplace</span>
+            </div>
+            <div class="category-item" data-category="business">
+              <i class="fas fa-chart-line"></i>
+              <span>Business Solutions</span>
+            </div>
+            <div class="category-item" data-category="content">
+              <i class="fas fa-pen"></i>
+              <span>Content & Copy</span>
+            </div>
+          </div>
+
+          <!-- Right Side - Subcategories -->
+          <div class="mega-menu-right">
+            <!-- AI & Automation Panel -->
+            <div class="subcategory-panel active" id="ai-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-robot"></i> AI & Automation Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-brain"></i> AI Agents</h5>
+                  <ul>
+                    <li><a href="service.html?service=ai-agents"><i class="fas fa-cog"></i> AI for all types</a></li>
+                    <li><a href="service.html?service=automation-solutions"><i class="fas fa-cogs"></i> Automation solutions</a></li>
+                    <li><a href="service.html?service=technical-optimization"><i class="fas fa-chart-line"></i> Technical optimization</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-robot"></i> AI Automation</h5>
+                  <ul>
+                    <li><a href="service.html?service=ai-automation"><i class="fas fa-robot"></i> AI automation for all types</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-comments"></i> Chatbots</h5>
+                  <ul>
+                    <li><a href="service.html?service=whatsapp-chatbots"><i class="fab fa-whatsapp"></i> WhatsApp Chatbots</a></li>
+                    <li><a href="service.html?service=web-chatbots"><i class="fas fa-globe"></i> Web Chatbots</a></li>
+                    <li><a href="service.html?service=instagram-chatbots"><i class="fab fa-instagram"></i> Instagram Chatbots</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-cloud"></i> SaaS Solutions</h5>
+                  <ul>
+                    <li><a href="service.html?service=custom-saas"><i class="fas fa-cloud"></i> Custom SaaS Development</a></li>
+                    <li><a href="service.html?service=saas-maintenance"><i class="fas fa-tools"></i> SaaS Maintenance</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Digital Marketing Panel -->
+            <div class="subcategory-panel" id="digital-marketing-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-bullhorn"></i> Digital Marketing Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-chess"></i> Strategic Marketing</h5>
+                  <ul>
+                    <li><a href="service.html?service=digital-marketing-strategy"><i class="fas fa-bullseye"></i> Digital Marketing Strategy</a></li>
+                    <li><a href="service.html?service=marketing-analytics"><i class="fas fa-chart-line"></i> Marketing Analytics</a></li>
+                    <li><a href="service.html?service=content-strategy"><i class="fas fa-file-alt"></i> Content Strategy</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-users"></i> Social Media Management</h5>
+                  <ul>
+                    <li><a href="service.html?service=facebook-management"><i class="fab fa-facebook"></i> Facebook Management</a></li>
+                    <li><a href="service.html?service=instagram-management"><i class="fab fa-instagram"></i> Instagram Management</a></li>
+                    <li><a href="service.html?service=twitter-management"><i class="fab fa-twitter"></i> Twitter Management</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-search"></i> SEO Optimization</h5>
+                  <ul>
+                    <li><a href="service.html?service=onpage-seo"><i class="fas fa-search"></i> On-page SEO</a></li>
+                    <li><a href="service.html?service=offpage-seo"><i class="fas fa-link"></i> Off-page SEO</a></li>
+                    <li><a href="service.html?service=seo-analytics"><i class="fas fa-chart-bar"></i> SEO Analytics</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-envelope"></i> Email Marketing</h5>
+                  <ul>
+                    <li><a href="service.html?service=email-campaigns"><i class="fas fa-mail-bulk"></i> Email Campaigns</a></li>
+                    <li><a href="service.html?service=newsletter-management"><i class="fas fa-list"></i> Newsletter Management</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Web Development Panel -->
+            <div class="subcategory-panel" id="web-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-globe"></i> Web Development Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-code"></i> Website Development</h5>
+                  <ul>
+                    <li><a href="service.html?service=custom-website"><i class="fas fa-laptop-code"></i> Custom Website Development</a></li>
+                    <li><a href="service.html?service=wordpress-website"><i class="fab fa-wordpress"></i> WordPress Website</a></li>
+                    <li><a href="service.html?service=shopify-ecommerce"><i class="fas fa-shopping-cart"></i> Shopify & E-commerce</a></li>
+                    <li><a href="service.html?service=web-applications"><i class="fas fa-window-restore"></i> Web Applications</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-redo"></i> Website Management</h5>
+                  <ul>
+                    <li><a href="service.html?service=website-redesign"><i class="fas fa-redo"></i> Website Redesign</a></li>
+                    <li><a href="service.html?service=website-maintenance"><i class="fas fa-tools"></i> Website Maintenance</a></li>
+                    <li><a href="service.html?service=landing-page-development"><i class="fas fa-flag"></i> Landing Page Development</a></li>
+                    <li><a href="service.html?service=backend-management"><i class="fas fa-server"></i> Backend Management</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-chart-pie"></i> Data Analytics</h5>
+                  <ul>
+                    <li><a href="service.html?service=business-analytics"><i class="fas fa-chart-line"></i> Business Analytics</a></li>
+                    <li><a href="service.html?service=data-visualization"><i class="fas fa-database"></i> Data Visualization</a></li>
+                    <li><a href="service.html?service=performance-analytics"><i class="fas fa-chart-bar"></i> Performance Analytics</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-list"></i> Product Setup</h5>
+                  <ul>
+                    <li><a href="service.html?service=product-listing"><i class="fas fa-list"></i> Product Listing / Catalogue Setup</a></li>
+                    <li><a href="service.html?service=inventory-management"><i class="fas fa-boxes"></i> Inventory Management</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Creative Design Panel -->
+            <div class="subcategory-panel" id="creative-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-palette"></i> Creative Design Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-ad"></i> Ad Creatives</h5>
+                  <ul>
+                    <li><a href="service.html?service=digital-ad-creatives"><i class="fas fa-bullhorn"></i> Digital Ad Creatives</a></li>
+                    <li><a href="service.html?service=print-ad-creatives"><i class="fas fa-newspaper"></i> Print Ad Creatives</a></li>
+                  </ul>
+                  
+                  <h5><i class="fab fa-instagram"></i> Social Media Creatives</h5>
+                  <ul>
+                    <li><a href="service.html?service=instagram-posts"><i class="fab fa-instagram"></i> Instagram Posts</a></li>
+                    <li><a href="service.html?service=facebook-posts"><i class="fab fa-facebook"></i> Facebook Posts</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-chart-line"></i> Presentation Design</h5>
+                  <ul>
+                    <li><a href="service.html?service=business-presentations"><i class="fas fa-presentation"></i> Business Presentations</a></li>
+                    <li><a href="service.html?service=investor-decks"><i class="fas fa-chart-bar"></i> Investor Decks</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-paint-brush"></i> Branding Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=brand-identity"><i class="fas fa-trademark"></i> Brand Identity Design</a></li>
+                    <li><a href="service.html?service=ui-ux-design"><i class="fas fa-pencil-ruler"></i> UI/UX Design</a></li>
+                    <li><a href="service.html?service=illustration-design"><i class="fas fa-image"></i> Illustration Design</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-film"></i> Motion Design</h5>
+                  <ul>
+                    <li><a href="service.html?service=animated-graphics"><i class="fas fa-film"></i> Animated Graphics</a></li>
+                    <li><a href="service.html?service=motion-graphics"><i class="fas fa-video"></i> Motion Graphics</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Editing Panel -->
+            <div class="subcategory-panel" id="video-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-video"></i> Video Editing Services</h4>
+              </div>
+              <div class="video-categories-grid">
+                <div class="video-category-item">
+                  <i class="fab fa-facebook"></i>
+                  <span>Social Media Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-bullhorn"></i>
+                  <span>Digital Marketing</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Business & Companies</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>Educational Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-heartbeat"></i>
+                  <span>Healthcare & Fitness</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-chart-bar"></i>
+                  <span>Finance Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-podcast"></i>
+                  <span>Podcasts</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-tshirt"></i>
+                  <span>Beauty & Fashion</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>E-commerce Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-home"></i>
+                  <span>Real Estate</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-film"></i>
+                  <span>Entertainment</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-laptop"></i>
+                  <span>Technology</span>
+                </div>
+              </div>
+              <div style="margin-top: 20px; text-align: center;">
+                <a href="#" style="color: #3A7BFF; font-size: 13px; font-weight: 500;">
+                  <i class="fas fa-arrow-right mr-2"></i>View All 20+ Video Categories
+                </a>
+              </div>
+            </div>
+
+            <!-- Marketplace Panel -->
+            <div class="subcategory-panel" id="marketplace-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-store"></i> Marketplace Management</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-store-alt"></i> Meesho</h5>
+                  <ul>
+                    <li><a href="service.html?service=meesho-account-creation"><i class="fas fa-user-plus"></i> Meesho Account Creation</a></li>
+                    <li><a href="service.html?service=product-listing-meesho"><i class="fas fa-list"></i> Product Listing on Meesho</a></li>
+                    <li><a href="service.html?service=meesho-store-management"><i class="fas fa-chart-line"></i> Meesho Store Management</a></li>
+                  </ul>
+                  
+                  <h5><i class="fab fa-amazon"></i> Amazon</h5>
+                  <ul>
+                    <li><a href="service.html?service=amazon-account-creation"><i class="fas fa-user-plus"></i> Amazon Account Creation</a></li>
+                    <li><a href="service.html?service=amazon-product-listing"><i class="fas fa-list"></i> Amazon Product Listing</a></li>
+                    <li><a href="service.html?service=amazon-store-optimization"><i class="fas fa-star"></i> Amazon Store Optimization</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-trademark"></i> Brand Registration</h5>
+                  <ul>
+                    <li><a href="service.html?service=brand-name-registration"><i class="fas fa-trademark"></i> Brand Name Registration</a></li>
+                    <li><a href="service.html?service=trademark-registration"><i class="fas fa-copyright"></i> Trademark Registration</a></li>
+                    <li><a href="service.html?service=legal-documentation"><i class="fas fa-passport"></i> Legal Documentation</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-user-check"></i> Influencer Marketing</h5>
+                  <ul>
+                    <li><a href="service.html?service=influencer-content-creation"><i class="fas fa-user-check"></i> Influencer Content Creation</a></li>
+                    <li><a href="service.html?service=influencer-marketing"><i class="fas fa-bullhorn"></i> Influencer Marketing</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Solutions Panel -->
+            <div class="subcategory-panel" id="business-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-chart-line"></i> Business Solutions</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-handshake"></i> CRM Solutions</h5>
+                  <ul>
+                    <li><a href="service.html?service=crm-setup-integration"><i class="fas fa-cogs"></i> CRM Setup & Integration</a></li>
+                    <li><a href="service.html?service=customer-relationship-management"><i class="fas fa-users"></i> Customer Relationship Management</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-sms"></i> Bulk SMS Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=bulk-sms-marketing"><i class="fas fa-sms"></i> Bulk SMS Marketing</a></li>
+                    <li><a href="service.html?service=messaging-solutions"><i class="fas fa-envelope"></i> Messaging Solutions</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-camera"></i> Photography & Videography</h5>
+                  <ul>
+                    <li><a href="service.html?service=professional-photography"><i class="fas fa-camera"></i> Professional Photography</a></li>
+                    <li><a href="service.html?service=video-production"><i class="fas fa-video"></i> Video Production</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-box"></i> Other Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=print-design"><i class="fas fa-print"></i> Print Design</a></li>
+                    <li><a href="service.html?service=packaging-design"><i class="fas fa-box"></i> Packaging Design</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content & Copy Panel -->
+            <div class="subcategory-panel" id="content-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-pen"></i> Content & Copywriting</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-pen"></i> Copywriting Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=ad-copywriting"><i class="fas fa-ad"></i> Ad Copywriting</a></li>
+                    <li><a href="service.html?service=blog-content"><i class="fas fa-blog"></i> Blog Content</a></li>
+                    <li><a href="service.html?service=website-content"><i class="fas fa-file-alt"></i> Website Content</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-book"></i> E-Book & Reports</h5>
+                  <ul>
+                    <li><a href="service.html?service=ebook-design"><i class="fas fa-book"></i> E-Book Design</a></li>
+                    <li><a href="service.html?service=report-design"><i class="fas fa-file-alt"></i> Report Design</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-lightbulb"></i> Concept Creation</h5>
+                  <ul>
+                    <li><a href="service.html?service=creative-concepts"><i class="fas fa-lightbulb"></i> Creative Concepts</a></li>
+                    <li><a href="service.html?service=idea-development"><i class="fas fa-brain"></i> Idea Development</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-edit"></i> Editing Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=content-editing"><i class="fas fa-edit"></i> Content Editing</a></li>
+                    <li><a href="service.html?service=proofreading"><i class="fas fa-spell-check"></i> Proofreading</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="our_work.html" class="nav-underline hover:text-blue smooth-transition">Our work</a>
+      
+      <!-- Why Us with Mega Menu (Original Design) -->
+      <div class="mega-menu-container">
+        <a href="#" class=" hover:text-blue smooth-transition nav-link-with-menu">Why us</a>
+        <div class="mega-menu why-us-mega-menu">
+          <div class="why-us-grid">
+            <div>
+              <h4><i class="fas fa-star"></i> Why Choose ByondX?</h4>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Expert team with 10+ years experience</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Timely delivery guaranteed</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Competitive pricing</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>24/7 customer support</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>100+ satisfied clients</span>
+              </div>
+              
+              <div class="why-us-cta">
+                <h4>Ready to start your project?</h4>
+                <p>Get a free consultation with our experts</p>
+               <a href="why_us.html"> <button class="btn-animate px-4 py-2 btn-primary font-semibold rounded text-sm relative overflow-hidden text-white"
+                        data-hover="Know More">
+                  <span class="btn-text">Know More</span>
+                </button> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="pricing.html" class="nav-underline hover:text-blue smooth-transition">Pricing</a>
+      <a href="contact.html" class="nav-underline hover:text-blue smooth-transition">Contact Us</a>
+    </nav>
+
+    <!-- Desktop Buttons with Slide Animation -->
+    <div class="desktop-buttons hidden lg:flex space-x-3">
+        <!-- Book a demo Button with Slide Animation -->
+        <a href="https://partner.byondxtech.com/book-demo" target="_blank">
+          <button class="btn-animate px-5 py-2 btn-primary font-semibold rounded-full shadow-lg relative overflow-hidden"
+                  data-hover="Book Demo">
+            <span class="btn-text">Book a demo</span>
+          </button>
+        </a>
+      <!-- Sign In Button with Slide Animation -->
+    <a href="https://partner.byondxtech.com/index.php/login">  <button class="btn-animate px-5 py-2 border border-black text-black font-semibold rounded-full hover:bg-black hover:text-white hover:border-black smooth-transition relative overflow-hidden"
+              data-hover="Sign In">
+        <span class="btn-text">Sign In</span>
+      </button> </a>
+      
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-btn lg:hidden">
+      <button id="menu-btn" class="focus:outline-none p-2 hover:bg-gray-100 rounded-lg smooth-transition">
+        <svg id="menu-icon" class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden">
+  <!-- Close Button -->
+  <div class="mobile-close-btn" id="mobile-close-btn">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </div>
+  
+  <!-- Menu Content -->
+  <div class="mobile-menu-content">
+    
+    <!-- Navigation Links -->
+    <nav class="mb-6">
+      <!-- Services Dropdown -->
+      <div class="mobile-dropdown">
+        <div class="mobile-dropdown-header" onclick="toggleMobileDropdown('services-dropdown')">
+          <span>Services</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="services-dropdown" class="mobile-dropdown-content">
+          <!-- AI Agents -->
+          <div class="mobile-submenu" style="--item-index: 0">
+            <h5><i class="fas fa-robot"></i> AI Agents</h5>
+            <ul>
+              <li><a href="service.html?service=ai-agents"><i class="fas fa-brain"></i> AI for all types</a></li>
+              <li><a href="service.html?service=automation-solutions"><i class="fas fa-cogs"></i> Automation solutions</a></li>
+              <li><a href="service.html?service=technical-optimization"><i class="fas fa-chart-line"></i> Technical process optimization</a></li>
+            </ul>
+          </div>
+          
+          <!-- Digital Marketing -->
+          <div class="mobile-submenu" style="--item-index: 1">
+            <h5><i class="fas fa-bullhorn"></i> Digital Marketing</h5>
+            <ul>
+              <li><a href="service.html?service=digital-marketing-strategy"><i class="fas fa-chess"></i> Strategic Marketing</a></li>
+              <li><a href="service.html?service=facebook-management"><i class="fas fa-users"></i> Social Media Management</a></li>
+              <li><a href="service.html?service=onpage-seo"><i class="fas fa-search"></i> SEO Optimization</a></li>
+              <li><a href="service.html?service=digital-ad-creatives"><i class="fas fa-paint-brush"></i> Creative Design</a></li>
+              <li><a href="service.html?service=custom-website"><i class="fas fa-tools"></i> Technical Solutions</a></li>
+              <li><a href="service.html?service=ai-automation"><i class="fas fa-robot"></i> Automation Services</a></li>
+            </ul>
+          </div>
+          
+          <!-- Website Management & Development -->
+          <div class="mobile-submenu" style="--item-index: 2">
+            <h5><i class="fas fa-globe"></i> Website Management & Development</h5>
+            <ul>
+              <li><a href="service.html?service=custom-website"><i class="fas fa-code"></i> Custom Website Development</a></li>
+              <li><a href="service.html?service=wordpress-website"><i class="fab fa-wordpress"></i> WordPress Website</a></li>
+              <li><a href="service.html?service=shopify-ecommerce"><i class="fas fa-shopping-cart"></i> Shopify & E-commerce</a></li>
+              <li><a href="service.html?service=web-applications"><i class="fas fa-window-restore"></i> Web Applications</a></li>
+              <li><a href="service.html?service=website-redesign"><i class="fas fa-redo"></i> Website Redesign</a></li>
+              <li><a href="service.html?service=website-maintenance"><i class="fas fa-tools"></i> Website Maintenance</a></li>
+              <li><a href="service.html?service=landing-page-development"><i class="fas fa-flag"></i> Landing Page Development</a></li>
+              <li><a href="service.html?service=backend-management"><i class="fas fa-server"></i> Backend Management</a></li>
+            </ul>
+          </div>
+          
+          <!-- Creative Design -->
+          <div class="mobile-submenu" style="--item-index: 3">
+            <h5><i class="fas fa-palette"></i> Creative Design</h5>
+            <ul>
+              <li><a href="service.html?service=digital-ad-creatives"><i class="fas fa-ad"></i> Ad Creatives</a></li>
+              <li><a href="service.html?service=instagram-posts"><i class="fab fa-instagram"></i> Social Media Creatives</a></li>
+              <li><a href="service.html?service=business-presentations"><i class="fas fa-chart-line"></i> Presentation Design</a></li>
+              <li><a href="service.html?service=illustration-design"><i class="fas fa-paint-brush"></i> Illustration Design</a></li>
+              <li><a href="service.html?service=brand-identity"><i class="fas fa-trademark"></i> Branding Services</a></li>
+              <li><a href="service.html?service=ebook-design"><i class="fas fa-book"></i> E-Book Design</a></li>
+              <li><a href="service.html?service=creative-concepts"><i class="fas fa-lightbulb"></i> Concept Creation</a></li>
+              <li><a href="service.html?service=print-design"><i class="fas fa-print"></i> Print Design</a></li>
+              <li><a href="service.html?service=packaging-design"><i class="fas fa-box"></i> Packaging Design</a></li>
+            </ul>
+          </div>
+          
+          <!-- Video Editing -->
+          <div class="mobile-submenu" style="--item-index: 4">
+            <h5><i class="fas fa-video"></i> Video Editing (All Categories)</h5>
+            <ul>
+              <li><a href="service.html?service=social-media-videos"><i class="fab fa-facebook"></i> Social Media Videos</a></li>
+              <li><a href="service.html?service=digital-marketing-videos"><i class="fas fa-bullhorn"></i> Digital Marketing</a></li>
+              <li><a href="service.html?service=business-company-videos"><i class="fas fa-briefcase"></i> Business & Companies</a></li>
+              <li><a href="service.html?service=educational-videos"><i class="fas fa-graduation-cap"></i> Educational Videos</a></li>
+              <li><a href="service.html?service=healthcare-fitness-videos"><i class="fas fa-heartbeat"></i> Healthcare & Fitness</a></li>
+              <li><a href="service.html?service=finance-videos"><i class="fas fa-chart-bar"></i> Finance</a></li>
+              <li><a href="service.html?service=podcast-videos"><i class="fas fa-podcast"></i> Podcasts</a></li>
+              <li><a href="service.html?service=beauty-fashion-videos"><i class="fas fa-tshirt"></i> Beauty & Fashion</a></li>
+              <li><a href="service.html?service=ecommerce-videos"><i class="fas fa-shopping-bag"></i> E-commerce</a></li>
+              <li><a href="service.html?service=real-estate-videos"><i class="fas fa-home"></i> Real Estate</a></li>
+              <li><a href="service.html?service=entertainment-videos"><i class="fas fa-film"></i> Entertainment</a></li>
+              <li><a href="service.html?service=technology-videos"><i class="fas fa-laptop"></i> Technology</a></li>
+              <li><a href="service.html?service=automobile-videos"><i class="fas fa-car"></i> Automobile</a></li>
+              <li><a href="service.html?service=travel-hospitality-videos"><i class="fas fa-plane"></i> Travel & Hospitality</a></li>
+              <li><a href="service.html?service=food-beverages-videos"><i class="fas fa-utensils"></i> Food & Beverages</a></li>
+              <li><a href="service.html?service=music-videos"><i class="fas fa-music"></i> Music Videos</a></li>
+              <li><a href="service.html?service=spiritual-wellness-videos"><i class="fas fa-spa"></i> Spiritual & Wellness</a></li>
+              <li><a href="service.html?service=news-media-videos"><i class="fas fa-newspaper"></i> News & Media</a></li>
+              <li><a href="service.html?service=wedding-events-videos"><i class="fas fa-ring"></i> Wedding & Events</a></li>
+              <li><a href="service.html?service=lifestyle-videos"><i class="fas fa-leaf"></i> Lifestyle</a></li>
+            </ul>
+          </div>
+          
+          <!-- Other Services -->
+          <div class="mobile-submenu" style="--item-index: 5">
+            <h5><i class="fas fa-cogs"></i> Other Services</h5>
+            <ul>
+              <li><a href="service.html?service=meesho-account-creation"><i class="fas fa-store"></i> Marketplace Management</a></li>
+              <li><a href="service.html?service=brand-name-registration"><i class="fas fa-trademark"></i> Brand Name Registration</a></li>
+              <li><a href="service.html?service=ai-automation"><i class="fas fa-robot"></i> AI Automation</a></li>
+              <li><a href="service.html?service=business-analytics"><i class="fas fa-chart-pie"></i> Data Analytics</a></li>
+              <li><a href="service.html?service=product-listing"><i class="fas fa-list"></i> Product Listing Setup</a></li>
+              <li><a href="service.html?service=influencer-marketing"><i class="fas fa-user-check"></i> Influencer Marketing</a></li>
+              <li><a href="service.html?service=inventory-management"><i class="fas fa-boxes"></i> Inventory Management</a></li>
+              <li><a href="service.html?service=whatsapp-chatbots"><i class="fas fa-comments"></i> Chatbots</a></li>
+              <li><a href="service.html?service=animated-graphics"><i class="fas fa-film"></i> Motion Design</a></li>
+              <li><a href="service.html?service=professional-photography"><i class="fas fa-camera"></i> Photography & Videography</a></li>
+              <li><a href="service.html?service=ad-copywriting"><i class="fas fa-pen"></i> Copywriting</a></li>
+              <li><a href="service.html?service=bulk-sms-marketing"><i class="fas fa-sms"></i> Bulk SMS Services</a></li>
+              <li><a href="service.html?service=custom-saas"><i class="fas fa-cloud"></i> SaaS Solutions</a></li>
+              <li><a href="service.html?service=crm-setup-integration"><i class="fas fa-handshake"></i> CRM Solutions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <a href="our_work.html" class="mobile-menu-link">
+        <svg class="w-5 h-5 mr-3 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+        </svg>
+        Our work
+      </a>
+      
+      <!-- Why Us Dropdown -->
+      <div class="mobile-dropdown">
+        <div class="mobile-dropdown-header" onclick="toggleMobileDropdown('why-us-dropdown')">
+          <span>Why us</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="why-us-dropdown" class="mobile-dropdown-content">
+          <div class="mobile-submenu" style="--item-index: 0">
+            <h5><i class="fas fa-star"></i> Why Choose ByondX?</h5>
+            
+            <div class="mobile-why-us-features">
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Expert team with 10+ years experience</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Timely delivery guaranteed</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Competitive pricing</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>24/7 customer support</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>100+ satisfied clients</span>
+              </div>
+            </div>
+            
+            <div class="mobile-cta">
+              <h5>Ready to start your project?</h5>
+              <p>Get a free consultation with our experts</p>
+             <a href="why_us.html"> <button class="btn-animate px-4 py-2 btn-primary font-semibold rounded text-sm relative overflow-hidden text-white"
+                      data-hover="Know More">
+                <span class="btn-text">Know More</span>
+              </button> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="pricing.html" class="mobile-menu-link">
+        <svg class="w-5 h-5 mr-3 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Pricing
+      </a>
+      <a href="contact.html" class="mobile-menu-link">
+        <svg class="w-5 h-5 mr-3 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+        </svg>
+        Contact Us
+      </a>
+    </nav>
+    
+    <!-- Mobile Menu Buttons with Slide Animation -->
+    <div class="mobile-menu-buttons">
+      <!-- Sign In Button with Slide Animation -->
+     <a href="https://partner.byondxtech.com/index.php/login"> <button class="btn-animate w-full py-3 mb-3 border border-black text-black font-semibold rounded-lg hover:bg-black hover:text-white smooth-transition relative overflow-hidden"
+              data-hover="Sign In">
+        <span class="btn-text flex items-center justify-center">
+          Sign in
+        </span>
+      </button> </a>
+      
+      <!-- Book a demo Button with Slide Animation -->
+      <a href="https://partner.byondxtech.com/book-demo" target="_blank">
+        <button class="btn-animate w-full py-3 btn-primary font-semibold rounded-lg relative overflow-hidden"
+                data-hover="Book Demo">
+          <span class="btn-text flex items-center justify-center">
+            Book a demo
+          </span>
+        </button>
+      </a>
+    </div>
+    
+    <!-- Contact Info -->
+    <div class="mt-8 pt-6 border-t border-gray-200">
+      <h3 class="text-sm font-semibold text-gray-500 mb-3">CONTACT US</h3>
+      <p class="text-gray-600 mb-1">
+        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        +1 (555) 123-4567
+      </p>
+      <p class="text-gray-600">
+        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        hello@byondx.com
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+  <!-- Left Content -->
+  <div class="space-y-7 fade-in">
+    
+    <!-- Updated Heading -->
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight hero-heading">
+      Where ideas meet<br><span class="hero-gradient italic">next-level execution</span>
+    </h1>
+
+    <!-- Updated Paragraph -->
+    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+      We blend creativity, technology, and intelligent workflows to build stunning digital experiences that help brands move faster and grow smarter.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4">
+      <!-- Hero Book a demo Button with Slide Animation -->
+      <a href="https://partner.byondxtech.com/book-demo" target="_blank">
+        <button class="btn-animate px-7 py-3 btn-primary font-semibold rounded-full shadow-lg relative overflow-hidden flex items-center justify-center gap-2"
+                data-hover="Book Demo">
+          <span class="btn-text flex items-center justify-center">
+            Book a demo
+          </span>
+        </button>
+      </a>
+      
+      <div class="relative w-full sm:w-64">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+          <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input type="text" 
+               class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent placeholder-gray-500 smooth-transition"
+               placeholder="Type here to search...">
+      </div>
+    </div>
+    
+    <!-- Updated Stats for ByondX Technologies -->
+<div class="pt-8 grid grid-cols-3 gap-6">
+  <!-- Projects Delivered -->
+  <div class="text-center p-4 bg-gray-50 rounded-xl">
+    <div class="text-3xl font-bold text-blue mb-1">
+      <span class="countup" data-target="150">0</span>+
+    </div>
+    <div class="text-sm text-gray-600">Projects Completed</div>
+  </div>
+
+  <!-- Client Satisfaction -->
+  <div class="text-center p-4 bg-gray-50 rounded-xl">
+    <div class="text-3xl font-bold text-blue mb-1">
+      <span class="countup" data-target="99">0</span>%
+    </div>
+    <div class="text-sm text-gray-600">Client Satisfaction</div>
+  </div>
+
+  <!-- Industries Served -->
+  <div class="text-center p-4 bg-gray-50 rounded-xl">
+    <div class="text-3xl font-bold text-blue mb-1">
+      <span class="countup" data-target="12">0</span>+
+    </div>
+    <div class="text-sm text-gray-600">Industries Served</div>
+  </div>
+</div>
+
+
+
+  </div>
+
+  <!-- Right Image Wall (Same – no changes) -->
+  <div class="grid grid-cols-3 gap-4 md:gap-6">
+    <!-- Column 1: bottom → top -->
+    <div class="scroll-container group">
+      <div class="scroll-content scroll-up" style="animation-duration:22s;">
+        <img class="scroll-img" src="assets/scroll 1.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 2.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 3.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 4.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 5.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 6.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 7.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 8.avif" alt="">
+      </div>
+      <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 smooth-transition pointer-events-none rounded-2xl"></div>
+    </div>
+
+    <!-- Column 2: top → bottom -->
+    <div class="scroll-container group">
+      <div class="scroll-content scroll-down" style="animation-duration:22s;">
+        <img class="scroll-img" src="assets/scroll 9.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 10.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 11.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 12.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 13.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 14.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 15.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 16.avif" alt="">
+      </div>
+      <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 smooth-transition pointer-events-none rounded-2xl"></div>
+    </div>
+
+    <!-- Column 3: bottom → top -->
+    <div class="scroll-container group">
+      <div class="scroll-content scroll-up" style="animation-duration:28s;">
+        <img class="scroll-img" src="assets/scroll 17.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 18.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 19.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 20.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 21.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 22.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 23.avif" alt="">
+        <img class="scroll-img" src="assets/scroll 24.avif" alt="">
+      </div>
+      <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 smooth-transition pointer-events-none rounded-2xl"></div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* Hero Section Scroll Container - LARGE VIEW STYLE FOR ALL SIZES */
+  .scroll-container {
+    position: relative;
+    height: 80vh;
+    max-height: 600px;
+    min-height: 400px;
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .scroll-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Animation keyframes */
+  @keyframes scrollUp {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  @keyframes scrollDown {
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .scroll-up {
+    animation: scrollUp linear infinite;
+  }
+
+  .scroll-down {
+    animation: scrollDown linear infinite;
+  }
+
+  /* MOBILE VIEW - EXACTLY LIKE LARGE VIEW */
+  @media (max-width: 768px) {
+    /* Main container adjustments */
+    .grid-cols-3 {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+    }
+    
+    /* Ensure scroll containers show side by side */
+    .scroll-container {
+      height: 50vh !important;
+      max-height: 400px !important;
+      min-height: 300px !important;
+      display: block !important;
+      width: 100% !important;
+    }
+    
+    /* Keep images proper size */
+    .scroll-img {
+      margin-bottom: 0.75rem;
+      border-radius: 0.5rem;
+    }
+    
+    /* Force animation to run */
+    .scroll-up, .scroll-down {
+      animation-play-state: running !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .scroll-container {
+      height: 45vh !important;
+      max-height: 350px !important;
+      min-height: 250px !important;
+    }
+    
+    .grid-cols-3 {
+      gap: 0.5rem !important;
+    }
+    
+    .scroll-img {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .scroll-container {
+      height: 40vh !important;
+      max-height: 300px !important;
+      min-height: 200px !important;
+    }
+  }
+
+  /* Ensure layout stays as 2 columns (content + images) on mobile */
+  @media (max-width: 768px) {
+    .lg\\:grid-cols-2 {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    
+    /* Right image wall - show all 3 columns */
+    .grid-cols-3 {
+      order: 2;
+      margin-top: 1.5rem;
+    }
+    
+    /* Left content */
+    .space-y-7 {
+      order: 1;
+    }
+  }
+
+  /* VERY SMALL MOBILE - still show 3 columns but smaller */
+  @media (max-width: 375px) {
+    .scroll-container {
+      height: 35vh !important;
+      max-height: 250px !important;
+      min-height: 180px !important;
+    }
+    
+    .grid-cols-3 {
+      gap: 0.375rem !important;
+    }
+    
+    .scroll-img {
+      border-radius: 0.375rem;
+    }
+  }
+
+  /* Animation styles for brands section */
+  .scroll-left {
+    animation: scrollLeft 35s linear infinite;
+  }
+  
+  .scroll-right {
+    animation: scrollRight 35s linear infinite;
+  }
+  
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* Pause animation on hover */
+  .brand-carousel:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Brand card top border animation */
+  .brand-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  
+  .brand-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  /* Responsive adjustments for brand cards */
+  @media (max-width: 768px) {
+    .brand-card {
+      width: 36vw;
+      height: 28vw;
+      padding: 4vw;
+    }
+    
+    .brand-icon {
+      width: 10vw;
+      height: 10vw;
+    }
+    
+    .brand-icon i {
+      font-size: 5vw;
+    }
+    
+    .brand-name {
+      font-size: 3.5vw;
+    }
+    
+    .scroll-left, .scroll-right {
+      animation-duration: 25s;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .brand-card {
+      width: 40vw;
+      height: 32vw;
+    }
+    
+    .brand-icon {
+      width: 12vw;
+      height: 12vw;
+    }
+    
+    .brand-icon i {
+      font-size: 6vw;
+    }
+    
+    .brand-name {
+      font-size: 4vw;
+    }
+    
+    .scroll-left, .scroll-right {
+      animation-duration: 20s;
+    }
+  }
+</style>
+
+<!-- <script>
+// JavaScript to maintain EXACT same scroll behavior on mobile
+document.addEventListener('DOMContentLoaded', function() {
+  function setupScrollAnimations() {
+    const isMobile = window.innerWidth <= 768;
+    
+    // Set animation durations
+    const scrollContents = document.querySelectorAll('.scroll-content');
+    scrollContents.forEach((content, index) => {
+      if (content.classList.contains('scroll-up')) {
+        // Columns 1 & 3
+        content.style.animationDuration = isMobile ? '20s' : '22s';
+      } else {
+        // Column 2
+        content.style.animationDuration = isMobile ? '20s' : '22s';
+      }
+      
+      // Force animation to run
+      content.style.animationPlayState = 'running';
+    });
+    
+    // On mobile, ensure 3 columns are visible
+    if (isMobile) {
+      const imageGrid = document.querySelector('.grid-cols-3');
+      if (imageGrid) {
+        imageGrid.style.display = 'grid';
+        imageGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        imageGrid.style.gap = '0.75rem';
+        
+        // Ensure all scroll containers are visible
+        const containers = imageGrid.querySelectorAll('.scroll-container');
+        containers.forEach(container => {
+          container.style.display = 'block';
+          container.style.width = '100%';
+        });
+      }
+    }
+  }
+  
+  // Initial setup
+  setupScrollAnimations();
+  
+  // Update on resize
+  window.addEventListener('resize', setupScrollAnimations);
+  
+  // Prevent touch interference
+  document.querySelectorAll('.scroll-container').forEach(container => {
+    container.addEventListener('touchstart', (e) => {
+      e.stopPropagation();
+    }, { passive: true });
+    
+    container.addEventListener('touchmove', (e) => {
+      if (e.target.closest('.scroll-container')) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+  });
+  
+  // Desktop hover effects
+  if (window.innerWidth > 768) {
+    document.querySelectorAll('.scroll-container').forEach(container => {
+      container.addEventListener('mouseenter', () => {
+        container.querySelector('.scroll-content').style.animationPlayState = 'paused';
+      });
+      container.addEventListener('mouseleave', () => {
+        container.querySelector('.scroll-content').style.animationPlayState = 'running';
+      });
+    });
+  }
+});
+</script> -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+
+<!-- Trusted Brands Section -->
+<section class="py-12 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+  <div class=" mx-auto px-4 text-center relative">
+    <!-- Section Header -->
+    <div class="mb-10 max-w-2xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Trusted by World-Leading Brands
+      </h2>
+      <p class="text-gray-600 text-lg">
+        Join thousands of innovative companies who rely on our platform to drive growth and deliver exceptional experiences.
+      </p>
+    </div>
+
+    <!-- Top Row: Left → Right -->
+    <div class="relative overflow-hidden py-4 mb-0">
+      <!-- Gradient fade effect -->
+      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+      
+      <div class="brand-carousel flex space-x-6 scroll-left">
+        <!-- Brand Cards - First Set -->
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-google text-blue-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Google</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-microsoft text-blue-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Microsoft</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-apple text-gray-800 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Apple</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-amazon text-yellow-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Amazon</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-meta text-blue-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Meta</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-netflix text-red-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Netflix</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-spotify text-green-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Spotify</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-ubuntu text-orange-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Ubuntu</span>
+        </div>
+        
+        <!-- Duplicate for seamless loop -->
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-google text-blue-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Google</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-microsoft text-blue-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Microsoft</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-apple text-gray-800 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Apple</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-yellow-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-amazon text-yellow-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Amazon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Row: Right → Left -->
+    <div class="relative overflow-hidden py-4">
+      <!-- Gradient fade effect -->
+      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+      
+      <div class="brand-carousel flex space-x-6 scroll-right">
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-slack text-purple-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Slack</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-twitter text-sky-500 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Twitter</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-instagram text-pink-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Instagram</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-linkedin text-blue-700 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">LinkedIn</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-github text-gray-800 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">GitHub</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-airbnb text-red-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Airbnb</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-ubuntu text-orange-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Canonical</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-whatsapp text-green-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">WhatsApp</span>
+        </div>
+        
+        <!-- Duplicate for seamless loop -->
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-slack text-purple-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Slack</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-twitter text-sky-500 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Twitter</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-instagram text-pink-600 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">Instagram</span>
+        </div>
+        
+        <div class="brand-card group flex-shrink-0 bg-white rounded-xl shadow-md p-5 flex flex-col items-center justify-center w-40 h-32 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <div class="brand-icon w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <i class="bi bi-linkedin text-blue-700 text-xl"></i>
+          </div>
+          <span class="brand-name text-sm font-semibold text-gray-800">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animation styles */
+  .scroll-left {
+    animation: scrollLeft 35s linear infinite;
+  }
+  
+  .scroll-right {
+    animation: scrollRight 35s linear infinite;
+  }
+  
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* Pause animation on hover */
+  .brand-carousel:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Brand card top border animation */
+  .brand-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  
+  .brand-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .brand-card {
+      width: 36vw;
+      height: 28vw;
+      padding: 4vw;
+    }
+    
+    .brand-icon {
+      width: 10vw;
+      height: 10vw;
+    }
+    
+    .brand-icon i {
+      font-size: 5vw;
+    }
+    
+    .brand-name {
+      font-size: 3.5vw;
+    }
+    
+    .scroll-left, .scroll-right {
+      animation-duration: 25s;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .brand-card {
+      width: 40vw;
+      height: 32vw;
+    }
+    
+    .brand-icon {
+      width: 12vw;
+      height: 12vw;
+    }
+    
+    .brand-icon i {
+      font-size: 6vw;
+    }
+    
+    .brand-name {
+      font-size: 4vw;
+    }
+  }
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+
+
+
+<!-- Medium Creative Work Section -->
+<section class="px-5 py-20 bg-white">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+    
+    <!-- LEFT CONTENT -->
+    <div class="space-y-7">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 bg-gray-50 shadow-sm">
+        <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+        <span class="text-xs tracking-wider font-semibold text-gray-700">
+          A NEW ERA OF CREATIVE WORK
+        </span>
+      </div>
+
+      <!-- Main Heading -->
+      <div class="space-y-4">
+        <h1 class="text-4xl md:text-4xl font-bold text-gray-900 leading-tight">
+          ByondX powers your digital
+          <span class="block italic font-serif text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 mt-2">
+            growth with future-ready solutions
+          </span>
+        </h1>
+        
+        <!-- Decorative Line -->
+        <div class="flex items-center gap-3 pt-2">
+          <div class="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+          <div class="h-1 w-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-5">
+        <div class="relative pl-6">
+          <div class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></div>
+          <p class="text-gray-700 leading-relaxed">
+            <span class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">ByondX Technologies</span> 
+            is your dedicated, on-call creative team that expands production capacity and extends your team's creative capabilities.
+          </p>
+        </div>
+        
+        <div class="relative pl-6">
+          <div class="absolute left-0 top-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400"></div>
+          <p class="text-gray-600 leading-relaxed">
+            See us as an extension of your team, freeing you to focus on your most impactful and creative work.
+          </p>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="grid grid-cols-2 gap-3 pt-4">
+        <div class="flex items-center gap-3 p-3.5 rounded-lg bg-gradient-to-r from-blue-50/60 to-blue-50/30 border border-blue-100 hover:border-blue-200 transition-colors">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-gray-800">Dedicated Team</span>
+        </div>
+        
+        <div class="flex items-center gap-3 p-3.5 rounded-lg bg-gradient-to-r from-purple-50/60 to-purple-50/30 border border-purple-100 hover:border-purple-200 transition-colors">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-gray-800">24/7 Availability</span>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="pt-7">
+        <button 
+          class="group relative px-9 py-3.5 btn-primary text-white text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+        
+        >
+          <span class="relative flex items-center justify-center gap-2.5">
+            Book a demo
+            <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </span>
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-300 to-blue-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        </button>
+        
+        <p class="mt-3.5 text-xs text-gray-500 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          Get started in minutes • No credit card required
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE VIDEO/THUMBNAIL -->
+    <div class="relative">
+      <!-- Main Video Container -->
+      <div class="relative rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-400">
+        <!-- Decorative Background Pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-purple-50/15 to-pink-50/20"></div>
+        
+        <!-- Video Thumbnail -->
+        <img 
+          src="assets/office 3.jpg" 
+          class="w-full h-[280px] md:h-[320px] object-cover relative z-10"
+          id="thumbImg"
+          alt="Creative Team Collaboration"
+        >
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent z-20"></div>
+        
+        <!-- Play Button -->
+        <button 
+          class="absolute inset-0 m-auto w-20 h-20 flex items-center justify-center rounded-full backdrop-blur-sm border border-white/30 hover:border-white/50 transition-all duration-300 z-30 group"
+          style="background: rgba(255, 255, 255, 0.15);"
+          onclick="playHeroVideo()"
+        >
+          <div class="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <svg class="w-8 h-8 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <div class="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/40 group-hover:scale-115 transition-all duration-300"></div>
+        </button>
+        
+        <!-- Floating Elements -->
+        <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-400/15 to-purple-400/15 rounded-2xl -rotate-12 z-0"></div>
+        <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-pink-400/10 to-purple-400/10 rounded-2xl rotate-12 z-0"></div>
+        
+        <!-- Hidden Video -->
+        <video 
+          id="heroVideo" 
+          class="hidden w-full h-[280px] md:h-[320px] object-cover relative z-40"
+          controls
+          poster="assets/BRAND IDENTITY.jpg"
+        >
+          <source src="your-video.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <!-- Floating Stats -->
+      <div class="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 z-40">
+        <div class="text-center">
+          <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">300%</div>
+          <div class="text-xs text-gray-600 mt-0.5">Faster Delivery</div>
+        </div>
+      </div>
+      
+      <!-- Trust Badge -->
+      <div class="absolute -top-3 left-6 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2.5 shadow flex items-center gap-2.5 z-30">
+        <div class="flex -space-x-1.5">
+          <div class="w-7 h-7 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 border border-white"></div>
+          <div class="w-7 h-7 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 border border-white"></div>
+          <div class="w-7 h-7 rounded-full bg-gradient-to-r from-pink-400 to-pink-600 border border-white"></div>
+        </div>
+        <span class="text-xs font-semibold text-gray-700">Trusted by 5000+ teams</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ByondX Technologies - Made to Flex Section -->
+<section class="bg-white py-16 px-6">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Main Heading -->
+    <div class="text-center mb-12">
+      <span class="inline-block px-5 py-2 bg-gradient-to-r from-[#B39DFF]/10 to-[#3A7BFF]/10 text-[#3A7BFF] text-sm font-semibold rounded-full border border-[#B39DFF]/20 mb-6">
+        BUILT FOR PERFORMANCE
+      </span>
+
+      <h2 class="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">
+        Smart. Scalable. <span class="text-[#3A7BFF]">Super reliable.</span>
+      </h2>
+
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        ByondX Technologies delivers <span class="font-semibold text-black">future-ready digital solutions</span> engineered for speed, quality, and seamless performance.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-8 mt-12">
+
+      <!-- Card 1: Global Talent -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-lg border border-gray-200 cursor-pointer">
+        <img src="assets/global creative talent.jpg" 
+             alt="Global Creative Talent"
+             class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110">
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+          <!-- Content Container -->
+          <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-500">
+            <!-- Title (Always Visible) -->
+            <div class="transform transition-all duration-500 group-hover:-translate-y-8">
+              <span class="text-[#4DF2C0] text-sm font-semibold uppercase tracking-wider mb-2 block">Global Talent</span>
+              <h3 class="text-2xl font-bold text-white mb-3">
+                Top <span class="italic text-[#B39DFF]">global creative talent</span>
+              </h3>
+            </div>
+            <!-- Hidden Description -->
+            <div class="opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+              <p class="text-gray-200 leading-relaxed mb-6">
+                Access ByondX's curated network of elite designers, developers, and strategists from around the world, hand-picked for their expertise and proven track record in delivering exceptional digital solutions.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4 text-sm">
+                  <span class="text-[#4DF2C0] font-medium">450+ Experts</span>
+                  <span class="text-[#B39DFF] font-medium">50+ Countries</span>
+                </div>
+                <span class="text-xs text-gray-300 bg-gray-800/50 px-3 py-1 rounded-full">ByondX Network</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- CTA Button -->
+          <button class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 btn-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+            Explore Talent →
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Ultra Fast -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-lg border border-gray-200 cursor-pointer">
+        <img src="assets/Ultra-fast.jpg" 
+             alt="Ultra Fast Turnaround"
+             class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+          <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-500">
+            <div class="transform transition-all duration-500 group-hover:-translate-y-8">
+              <span class="text-[#4DF2C0] text-sm font-semibold uppercase tracking-wider mb-2 block">Speed & Efficiency</span>
+              <h3 class="text-2xl font-bold text-white mb-3">
+                <span class="italic text-[#B39DFF]">Ultra-fast</span> turnaround times
+              </h3>
+            </div>
+            <div class="opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+              <p class="text-gray-200 leading-relaxed mb-6">
+                With ByondX's dedicated project managers, collaborative online tools and expert use of AI, projects can be completed in as little as 12 hours. Our streamlined workflow ensures quality without compromise.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4 text-sm">
+                  <span class="text-[#4DF2C0] font-medium">12h Minimum</span>
+                  <span class="text-[#B39DFF] font-medium">24/7 Coverage</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm px-3 py-1 rounded-lg">
+                  <span class="text-xl font-bold text-white">300%</span>
+                  <span class="text-xs text-gray-300 ml-1">Faster</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Time Badge -->
+          <div class="absolute top-6 left-6 bg-[#3A7BFF] text-white text-sm font-bold px-3 py-2 rounded-lg shadow-lg">
+            ⚡ 12h Turnaround
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Flexible Subscription -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-lg border border-gray-200 cursor-pointer">
+        <img src="assets/best price.jpg" 
+             alt="Flexible Subscription Model"
+             class="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+          <div class="absolute bottom-0 left-0 right-0 p-8 transition-all duration-500">
+            <div class="transform transition-all duration-500 group-hover:-translate-y-8">
+              <span class="text-[#4DF2C0] text-sm font-semibold uppercase tracking-wider mb-2 block">Flexibility</span>
+              <h3 class="text-2xl font-bold text-white mb-3">
+                <span class="italic text-[#B39DFF]">Flexible</span> subscription model
+              </h3>
+            </div>
+            <div class="opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+              <p class="text-gray-200 leading-relaxed mb-6">
+                Scale your ByondX team up or down as needed with our flexible plans. From monthly retainers to project-based contracts, we adapt to your business requirements with transparent pricing and no lock-in periods.
+              </p>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                  <div class="text-[#B39DFF] font-semibold">Monthly</div>
+                  <div class="text-white font-bold">Retainer</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                  <div class="text-[#4DF2C0] font-semibold">Project</div>
+                  <div class="text-white font-bold">Based</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- CTA Button -->
+          <button class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 btn-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+            View Plans →
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  
+  </div>
+</section>
+
+<style>
+/* Custom scrollbar for the section */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3A7BFF;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4DF2C0;
+}
+
+/* Smooth hover transitions */
+.group img {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card hover effects */
+.group:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 40px rgba(58, 123, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+  }
+}
+</style>
+
+
+
+
+
+<!-- ByondX Technologies Stats Section - Clean Version -->
+<section class="bg-[#0D1B1C] py-20 px-6 text-white">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Heading -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 bg-white/5 text-gray-300 text-sm font-medium uppercase tracking-wider rounded-full mb-6">
+        Success in Numbers
+      </span>
+      <h2 class="text-4xl md:text-5xl font-normal mb-8">
+        Delivering exceptional<br>
+        <span class="italic font-serif text-white">value & innovation</span>
+      </h2>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        At ByondX Technologies, we partner with startups, enterprises, and mid-market companies 
+        to craft scalable digital solutions that accelerate growth.
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Stat 1 -->
+      <div class="text-center p-6 bg-white/5 rounded-xl border border-white/10">
+        <div class="text-5xl md:text-6xl font-light text-white mb-4">500+</div>
+        <p class="text-gray-300 text-sm">
+          Successful projects delivered across industries
+        </p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="text-center p-6 bg-white/5 rounded-xl border border-white/10">
+        <div class="text-5xl md:text-6xl font-light text-white mb-4">70k+</div>
+        <p class="text-gray-300 text-sm">
+          Hours of innovation and development completed
+        </p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="text-center p-6 bg-white/5 rounded-xl border border-white/10">
+        <div class="text-5xl md:text-6xl font-light text-white mb-4">94%</div>
+        <p class="text-gray-300 text-sm">
+          Client satisfaction rate demonstrating consistent excellence
+        </p>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="text-center p-6 bg-white/5 rounded-xl border border-white/10">
+        <div class="text-5xl md:text-6xl font-light text-white mb-4">6 mo</div>
+        <p class="text-gray-300 text-sm">
+          Average payback period for impactful results
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Trust Indicators -->
+    <div class="mt-16 pt-12 border-t border-white/10 text-center">
+      <p class="text-gray-300 mb-8">Trusted by industry leaders worldwide</p>
+      <div class="flex flex-wrap justify-center gap-8">
+        <div class="text-center">
+          <div class="text-lg font-medium text-[#3A7BFF] mb-1">A+</div>
+          <div class="text-xs text-gray-400">Industry Rating</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-medium text-[#4DF2C0] mb-1">ISO</div>
+          <div class="text-xs text-gray-400">Certified</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-medium text-[#B39DFF] mb-1">98.7%</div>
+          <div class="text-xs text-gray-400">Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ByondX Technologies - Success Story Videos Section -->
+<section class="bg-white py-20 px-6 text-gray-900">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Section Heading -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 bg-gray-100 text-gray-600 text-sm font-medium uppercase tracking-wider rounded-full mb-6">
+        Client Success Stories
+      </span>
+      <h2 class="text-4xl md:text-5xl font-normal mb-8">
+        Watch how brands<br>
+        <span class="italic font-serif text-gray-800">scale creativity & growth</span>
+      </h2>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        Discover how forward-thinking companies leverage ByondX Technologies to achieve measurable results.
+      </p>
+    </div>
+
+    <!-- Videos Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Video Card 1 -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        
+        <!-- Thumbnail -->
+        <div class="relative h-48 overflow-hidden">
+          <img src="assets/video thumb.jpeg" 
+              alt="Video Thumbnail"
+              class="w-full h-full object-cover">
+          
+          <!-- Play Button -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur">
+              <div class="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[12px] border-transparent border-l-[#3A7BFF] ml-1"></div>
+            </div>
+          </div>
+
+          <!-- Tag -->
+          <div class="absolute bottom-4 left-4">
+            <span class="text-xs font-medium text-[#3A7BFF] bg-white/90 px-2 py-1 rounded">Case Study</span>
+          </div>
+        </div>
+
+        
+        <!-- Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-normal mb-3 text-gray-800">
+            "It makes me look good!"
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">
+            How <span class="italic font-serif text-gray-800">Frotter</span> uses ByondX to turn ideas into reality efficiently.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+            <span class="text-xs text-gray-500">12 min watch</span>
+            <a href="#" class="text-sm font-medium text-[#3A7BFF] hover:text-[#4DF2C0] transition-colors">
+              Watch →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Card 2 -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        
+        <!-- Thumbnail -->
+        <div class="relative h-48 overflow-hidden">
+          <img src="assets/video thumb2.jpeg" 
+              alt="Video Thumbnail"
+              class="w-full h-full object-cover">
+
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur">
+              <div class="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[12px] border-transparent border-l-[#4DF2C0] ml-1"></div>
+            </div>
+          </div>
+
+          <div class="absolute bottom-4 left-4">
+            <span class="text-xs font-medium text-[#4DF2C0] bg-white/90 px-2 py-1 rounded">Success Story</span>
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-normal mb-3 text-gray-800">
+            "Hassle-free Scaling"
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Why <span class="italic font-serif text-gray-800">Palo Alto Networks</span> achieves creativity at scale with ByondX.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+            <span class="text-xs text-gray-500">15 min watch</span>
+            <a href="#" class="text-sm font-medium text-[#4DF2C0] hover:text-[#3A7BFF] transition-colors">
+              Watch →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Card 3 -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        
+        <!-- Thumbnail -->
+       <div class="relative h-48 overflow-hidden">
+          <img src="assets/video thumb3.jpeg"
+              alt="Video Thumbnail"
+              class="w-full h-full object-cover">
+
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur">
+              <div class="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[12px] border-transparent border-l-[#B39DFF] ml-1"></div>
+            </div>
+          </div>
+
+          <div class="absolute bottom-4 left-4">
+            <span class="text-xs font-medium text-[#B39DFF] bg-white/90 px-2 py-1 rounded">Impact Story</span>
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-normal mb-3 text-gray-800">
+            "Creative Acceleration"
+          </h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Discover how <span class="italic font-serif text-gray-800">TechNova</span> leverages ByondX for impactful creative campaigns.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+            <span class="text-xs text-gray-500">10 min watch</span>
+            <a href="#" class="text-sm font-medium text-[#B39DFF] hover:text-[#3A7BFF] transition-colors">
+              Watch →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <button class="btn-primary  px-8 py-3 rounded-full font-medium transition-all duration-300">
+        Schedule Your Strategy Session
+      </button>
+      <p class="mt-4 text-gray-500 text-sm">
+        Join 500+ forward-thinking companies achieving measurable growth
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Simple hover effects */
+.bg-white\/5:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.border-gray-200:hover {
+  border-color: #d1d5db;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, transform, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-5xl {
+    font-size: 2rem;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem;
+  }
+}
+</style>
+
+
+
+
+
+<!-- Enhanced Creative Services Horizontal Slider -->
+<section class="bg-[#F7F8F3] py-10 px-4 md:px-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto relative">
+    
+    <!-- Heading -->
+    <div class="mb-16 text-center">
+    <div class="mb-14 text-center">
+      
+      <!-- Top Label -->
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <div class="w-2 h-2 rounded-full bg-[#3A7BFF]"></div>
+        <p class="text-xs uppercase tracking-[0.2em] text-gray-600 font-medium">
+          Crafted for Modern Teams
+        </p>
+      </div>
+
+      <!-- Main Heading -->
+     <h2 class="text-3xl md:text-3xl lg:text-4xl font-light leading-snug max-w-3xl mx-auto text-gray-900">
+        ByondX Technologies delivers powerful 
+        <span class="italic font-serif">digital, creative & product solutions</span>
+        — all in one place.
+      </h2>
+
+    </div>
+
+
+    <!-- Slider Container -->
+    <div class="relative">
+      <!-- Navigation Arrows -->
+      <button class="slider-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 w-12 h-12 btn-primary rounded-full shadow-xl flex items-center justify-center text-white transition-all duration-300 opacity-0 group-hover/slider:opacity-100">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      
+      <button class="slider-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 w-12 h-12 btn-primary rounded-full shadow-xl flex items-center justify-center text-white transition-all duration-300 opacity-0 group-hover/slider:opacity-100">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <style>
+        .service-bg {
+            background-image: url('assets/service 1.avif');
+            background-size: cover;
+            background-position: center;
+          }
+      </style>
+
+      <!-- Horizontal Scroll Container -->
+      <div class="slider-container flex gap-6 overflow-x-auto pb-8 scrollbar-hide group/slider" id="slider">
+        
+        <!-- Card 1: AI-Powered Creative -->
+        <div class="slider-card group/card min-w-[300px] md:min-w-[350px] h-[480px] relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0">
+          <!-- Background Image -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#3A7BFF] via-[#4DF2C0] to-[#B39DFF]">
+            <div class="absolute service-bg inset-0 bg-[url('assets/service 1.avif')] bg-cover bg-center opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"></div>
+          </div>
+          
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          
+          <!-- Content -->
+          <div class="absolute inset-0 p-8 flex flex-col justify-between">
+            <!-- Top Badge -->
+            <div class="self-start">
+              <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full border border-white/30">
+                Featured
+              </span>
+            </div>
+            
+            <!-- Bottom Content -->
+            <div>
+              <!-- Service Name -->
+              <h3 class="text-3xl font-light text-white mb-4">AI-Powered Creative</h3>
+              
+              <!-- Description (Hidden by default) -->
+              <div class="opacity-0 group-hover/card:opacity-100 transform translate-y-4 group-hover/card:translate-y-0 transition-all duration-500">
+                <p class="text-gray-200 text-sm mb-6 leading-relaxed">
+                  Generate stunning visuals, copy, and designs instantly with our AI-powered creative suite.
+                </p>
+                
+                <!-- Features -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Instant Generation</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Brand-Aligned</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">24/7 Available</span>
+                </div>
+                
+                <!-- CTA -->
+                <button class="flex items-center gap-2 btn-primary text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300">
+                  Explore Service
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Decorative Element -->
+          <div class="absolute top-8 right-8 w-12 h-12 bg-gradient-to-r from-[#3A7BFF] to-[#B39DFF] rounded-full opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"></div>
+        </div>
+
+        <!-- Card 2: Packaging & Merch Design -->
+        <div class="slider-card group/card min-w-[300px] md:min-w-[350px] h-[480px] relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#FF6B6B] via-[#FFD166] to-[#06D6A0]">
+              <div class="absolute inset-0 opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"
+                  style="background: url('assets/Best\ Seller.jpg') center/cover;">
+              </div>
+            </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          
+          <div class="absolute inset-0 p-8 flex flex-col justify-between">
+            <div class="self-start">
+              <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full border border-white/30">
+                Best Seller
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="text-3xl font-light text-white mb-4">Packaging & Merch Design</h3>
+              
+              <div class="opacity-0 group-hover/card:opacity-100 transform translate-y-4 group-hover/card:translate-y-0 transition-all duration-500">
+                <p class="text-gray-200 text-sm mb-6 leading-relaxed">
+                  Create memorable unboxing experiences and merchandise that customers love and keep.
+                </p>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">3D Mockups</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Print-Ready</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Sustainable</span>
+                </div>
+                
+                <button class="flex items-center gap-2 btn-primary text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300">
+                  Explore Service
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="absolute top-8 right-8 w-12 h-12 bg-gradient-to-r from-[#FF6B6B] to-[#FFD166] rounded-full opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"></div>
+        </div>
+
+        <!-- Card 3: Brand Identity -->
+        <div class="slider-card group/card min-w-[300px] md:min-w-[350px] h-[480px] relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0">
+          <div class="absolute inset-0 opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"
+                  style="background: url('assets/service\ 3.avif') center/cover;">
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          
+          <div class="absolute inset-0 p-8 flex flex-col justify-between">
+            <div class="self-start">
+              <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full border border-white/30">
+                Premium
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="text-3xl font-light text-white mb-4">Brand Identity</h3>
+              
+              <div class="opacity-0 group-hover/card:opacity-100 transform translate-y-4 group-hover/card:translate-y-0 transition-all duration-500">
+                <p class="text-gray-200 text-sm mb-6 leading-relaxed">
+                  Build a compelling brand identity that resonates with your audience and stands the test of time.
+                </p>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Logo Design</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Brand Guidelines</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Visual Identity</span>
+                </div>
+                
+                <button class="flex items-center gap-2 btn-primary text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300">
+                  Explore Service
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="absolute top-8 right-8 w-12 h-12 bg-gradient-to-r from-[#8338EC] to-[#3A86FF] rounded-full opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"></div>
+        </div>
+
+        <!-- Card 4: AI Strategy Consulting -->
+        <div class="slider-card group/card min-w-[300px] md:min-w-[350px] h-[480px] relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0">
+         <div class="absolute inset-0 opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"
+                  style="background: url('assets/service\ 4.avif') center/cover;">
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          
+          <div class="absolute inset-0 p-8 flex flex-col justify-between">
+            <div class="self-start">
+              <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full border border-white/30">
+                Expert
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="text-3xl font-light text-white mb-4">AI Strategy Consulting</h3>
+              
+              <div class="opacity-0 group-hover/card:opacity-100 transform translate-y-4 group-hover/card:translate-y-0 transition-all duration-500">
+                <p class="text-gray-200 text-sm mb-6 leading-relaxed">
+                  Develop and implement AI strategies that drive innovation and create competitive advantages.
+                </p>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Strategy</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Implementation</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Optimization</span>
+                </div>
+                
+                <button class="flex items-center gap-2 btn-primary text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300">
+                  Explore Service
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="absolute top-8 right-8 w-12 h-12 bg-gradient-to-r from-[#00BBF9] to-[#9B5DE5] rounded-full opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"></div>
+        </div>
+
+        <!-- Card 5: eBook Design -->
+        <div class="slider-card group/card min-w-[300px] md:min-w-[350px] h-[480px] relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0">
+         <div class="absolute inset-0 opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"
+                  style="background: url('assets/service\ 5.avif') center/cover;">
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          
+          <div class="absolute inset-0 p-8 flex flex-col justify-between">
+            <div class="self-start">
+              <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full border border-white/30">
+                Popular
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="text-3xl font-light text-white mb-4">eBook Design</h3>
+              
+              <div class="opacity-0 group-hover/card:opacity-100 transform translate-y-4 group-hover/card:translate-y-0 transition-all duration-500">
+                <p class="text-gray-200 text-sm mb-6 leading-relaxed">
+                  Design captivating eBooks that engage readers and effectively communicate your message.
+                </p>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Interactive</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Multi-Format</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">SEO Optimized</span>
+                </div>
+                
+                <button class="flex items-center gap-2 btn-primary text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300">
+                  Explore Service
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="absolute top-8 right-8 w-12 h-12 bg-gradient-to-r from-[#FF9A00] to-[#FF0054] rounded-full opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"></div>
+        </div>
+
+        <!-- Card 6: Web & App Design -->
+        <div class="slider-card group/card min-w-[300px] md:min-w-[350px] h-[480px] relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0">
+         <div class="absolute inset-0 opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"
+                  style="background: url('assets/service\ 6.avif') center/cover;">
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+          
+          <div class="absolute inset-0 p-8 flex flex-col justify-between">
+            <div class="self-start">
+              <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full border border-white/30">
+                Trending
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="text-3xl font-light text-white mb-4">Web & App Design</h3>
+              
+              <div class="opacity-0 group-hover/card:opacity-100 transform translate-y-4 group-hover/card:translate-y-0 transition-all duration-500">
+                <p class="text-gray-200 text-sm mb-6 leading-relaxed">
+                  Create stunning, user-friendly websites and mobile applications that drive engagement.
+                </p>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">Responsive</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">User-Centric</span>
+                  <span class="px-3 py-1 bg-white/10 backdrop-blur-sm text-white text-xs rounded-full">High-Performance</span>
+                </div>
+                
+                <button class="flex items-center gap-2 btn-primary text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300">
+                  Explore Service
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="absolute top-8 right-8 w-12 h-12 bg-gradient-to-r from-[#390099] to-[#FF0054] rounded-full opacity-20 group-hover/card:opacity-30 transition-opacity duration-500"></div>
+        </div>
+
+      </div>
+      
+    </div>
+
+    <!-- CTA Button -->
+    <div class="mt-16 text-center">
+      <button class="group relative btn-primary text-white px-10 py-4 rounded-full font-medium text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+        <span class="relative z-10">Explore All Services</span>
+        <div class="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </button>
+      <p class="mt-4 text-gray-500 text-sm">50+ creative services available • No contracts required</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Smooth scrolling for slider */
+  .slider-container {
+    scroll-behavior: smooth;
+    cursor: grab;
+  }
+  
+  .slider-container:active {
+    cursor: grabbing;
+  }
+  
+  /* Card hover effects */
+  .slider-card {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .slider-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .slider-card {
+      min-width: 280px;
+      height: 420px;
+    }
+    
+    .slider-prev,
+    .slider-next {
+      display: none;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+<!-- TESTIMONIAL SECTION -->
+<section class="bg-white py-24 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10">
+
+    <!-- LEFT VERTICAL IMAGES -->
+    <div class="flex flex-col gap-12 items-center">
+      <!-- TOP SMALL IMAGE -->
+      <div class="w-36 h-36 rounded-full bg-gradient-to-br from-[#B39DFF]/20 to-[#3A7BFF]/20 opacity-50 flex items-center justify-center overflow-hidden hover:scale-105 transition-transform duration-300">
+        <img src="assets/testin1.jpeg" 
+             class="w-full h-full object-cover" 
+             alt="Client 1">
+      </div>
+
+      <!-- MIDDLE IMAGE THAT CHANGES WITH SLIDE -->
+      <div id="dynamicClient" class="w-48 h-48 rounded-full transition-all duration-500 overflow-hidden shadow-xl relative group">
+        <img src="assets/testin2.jpeg" 
+             class="w-full h-full object-cover transition-opacity duration-300" 
+             alt="Current Client">
+        <div class="absolute inset-0 bg-gradient-to-tr from-[#3A7BFF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+
+      <!-- BOTTOM SMALL IMAGE -->
+      <div class="w-36 h-36 rounded-full bg-gradient-to-br from-[#B39DFF]/20 to-[#3A7BFF]/20 opacity-50 flex items-center justify-center overflow-hidden hover:scale-105 transition-transform duration-300">
+        <img src="assets/testin3.jpeg" 
+             class="w-full h-full object-cover" 
+             alt="Client 3">
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="flex-1 pl-0 lg:pl-10 relative">
+
+      <!-- Logo -->
+      <div class="w-28 h-10 mb-6 flex items-center justify-center">
+        <div class="text-black font-bold text-xl flex items-center gap-2">
+          <div class="w-8 h-8 rounded bg-gradient-to-r from-[#3A7BFF] to-[#B39DFF] flex items-center justify-center">
+            <span class="text-white"><img src="assets/BRAND IDENTITY.jpg" alt=""></span>
+          </div>
+          <span>ByondX</span>
+        </div>
+      </div>
+
+      <!-- Slider -->
+      <div id="testimonialSlider" class="overflow-hidden h-56 relative">
+        <div id="slides" class="relative">
+
+          <!-- Slide 1 -->
+          <div class="slide flex flex-col gap-6">
+            <p class="text-3xl font-light leading-snug tracking-wide text-black max-w-3xl">
+              "ByondX Technologies delivers premium IT solutions.
+              <span class="font-semibold text-[#3A7BFF]">Their dedication and innovation make every project a success."</span>
+            </p>
+            <p class="text-sm text-black/60 tracking-wide">
+              John Smith, CTO at FinTech Corp
+            </p>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide flex flex-col gap-6 hidden">
+            <p class="text-3xl font-light leading-snug tracking-wide text-black max-w-3xl">
+              "The team is professional and always responsive.
+              <span class="font-semibold text-[#3A7BFF]">We achieved faster results and higher efficiency."</span>
+            </p>
+            <p class="text-sm text-black/60 tracking-wide">
+              Sarah Johnson, Head of Design at CreativeHub
+            </p>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide flex flex-col gap-6 hidden">
+            <p class="text-3xl font-light leading-snug tracking-wide text-black max-w-3xl">
+              "ByondX brings innovation and reliability.
+              <span class="font-semibold text-[#3A7BFF]">Their solutions helped us scale seamlessly."</span>
+            </p>
+            <p class="text-sm text-black/60 tracking-wide">
+              Daniel Foster, Product Manager at Amazon
+            </p>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="slide flex flex-col gap-6 hidden">
+            <p class="text-3xl font-light leading-snug tracking-wide text-black max-w-3xl">
+              "Exceptional service and strategic insights.
+              <span class="font-semibold text-[#3A7BFF]">ByondX transformed our digital operations."</span>
+            </p>
+            <p class="text-sm text-black/60 tracking-wide">
+              Michael Chen, CTO at TechVision
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ARROWS -->
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-5">
+        <button id="prevBtn"
+          class="w-12 h-12 rounded-full border border-black/30 text-black flex items-center justify-center hover:bg-[#4DF2C0]/20 transition-all duration-300 hover:scale-105">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+          </svg>
+        </button>
+
+        <button id="nextBtn"
+          class="w-12 h-12 rounded-full border border-black/30 text-black flex items-center justify-center hover:bg-[#4DF2C0]/20 transition-all duration-300 hover:scale-105">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- SLIDE INDICATORS -->
+      <div class="absolute bottom-0 left-0 flex gap-3 mt-8" id="indicatorsContainer"></div>
+
+      <!-- SLIDE COUNTER -->
+      <div class="absolute top-0 right-0 text-black/50 text-sm" id="slideCounter">
+        1 / 4
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #FFFFFF;
+  }
+
+  .slide {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: auto;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .indicator.active {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+  }
+
+  /* Floating middle image */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  #dynamicClient img {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Scrollbar for side scroller */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #3A7BFF;
+    border-radius: 3px;
+  }
+</style>
+
+
+
+
+
+
+
+
+<section class="difference-section">
+    <div class="container">
+        
+        <p class="small-title">WHY BYONDX</p>
+
+        <h2 class="main-heading">
+            ByondX Technologies is the <em>trusted partner</em><br>for innovative IT solutions
+        </h2>
+
+        <div class="features-row">
+            
+            <!-- Item 1 -->
+            <div class="feature-box">
+                <div class="icon-box">
+                    <img src="assets/tool2.png" alt="">
+                </div>
+                <p class="tag">SCALABLE</p>
+                <h3>Grow without limits</h3>
+                <p class="desc">
+                    Our solutions are built to scale with your business. Focus on expansion while we manage the infrastructure.
+                </p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="feature-box">
+                <div class="icon-box">
+                    <img src="assets/tool1.png" alt="">
+                </div>
+                <p class="tag">FLEXIBLE</p>
+                <h3>Adapt to your needs</h3>
+                <p class="desc">
+                    From custom software to cloud integration, we provide flexible IT services tailored to your business goals.
+                </p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="feature-box">
+                <div class="icon-box">
+                    <img src="assets/tool.png" alt="">
+                </div>
+                <p class="tag">INNOVATIVE</p>
+                <h3>Solutions that lead</h3>
+                <p class="desc">
+                    Leveraging the latest technology, we deliver innovative IT solutions that give your business a competitive edge.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* Main section */
+.difference-section {
+    background: #f3ebeb;  /* Pure White */
+    padding: 100px 0;
+    font-family: "Inter", sans-serif;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Section small title */
+.small-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #777777;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Main heading */
+.main-heading {
+    font-size: 42px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.3;
+    margin-bottom: 70px;
+}
+
+.main-heading em {
+    font-family: "Georgia", serif;
+    font-style: italic;
+    color: #B39DFF; /* Soft Purple accent */
+}
+
+/* Features row */
+.features-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Feature box */
+.feature-box {
+    width: 31%;
+    text-align: left;
+    background: #f8f8f8; /* light grey for subtle card */
+    padding: 30px 25px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: default;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Icon Box */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #e6f7ff; /* light blue accent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.icon-box img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover .icon-box {
+    background: #3A7BFF; /* Primary Blue on hover */
+}
+
+.feature-box:hover .icon-box img {
+    transform: scale(1.2);
+    filter: brightness(0) invert(1);
+}
+
+/* Tags */
+.tag {
+    font-size: 12px;
+    color: #3A7BFF; /* Primary Blue accent */
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Feature title */
+.feature-box h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+/* Description */
+.desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555555;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+    .feature-box {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .main-heading {
+        font-size: 34px;
+    }
+}
+
+/* Scrollbar for side scroller (if any) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- CTA Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+    <div class="bg-gradient-to-r from-[#3A7BFF] via-[#B39DFF] to-[#4DF2C0] rounded-3xl p-10 md:p-16 shadow-lg relative overflow-hidden">
+      <!-- Heading -->
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Ready to scale your creative team?
+      </h2>
+      <!-- Subtext -->
+      <p class="text-lg md:text-xl text-white/90 mb-8">
+        Join 2,500+ companies that trust ByondX Technologies for their creative needs.
+      </p>
+      <!-- CTA Button -->
+      <button class="relative px-10 py-4 btn-primary text-white font-bold text-lg rounded-full shadow-md transition-all duration-300">
+        Book a demo today
+        <!-- subtle slide hover effect -->
+        <span class="absolute inset-0 bg-white/10 rounded-full opacity-0 hover:opacity-30 transition-opacity duration-300"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Optional: Custom scrollbar for side scroller -->
+<style>
+  ::-webkit-scrollbar {
+    width: 6px; 
+    height: 6px;
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #3A7BFF; 
+    border-radius: 10px;
+  }
+</style>
+
+
+
+
+
+
+
+<!-- Same Footer as Before -->
+<footer class="bg-black text-white py-16 relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent"></div>
+  </div>
+
+  <!-- Top Gradient Border -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-emerald-400 to-purple-500"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <!-- Main Footer Grid -->
+    <div class="grid lg:grid-cols-5 gap-10 mb-12">
+      <!-- Brand Column -->
+      <div class="lg:col-span-2">
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-emerald-400 flex items-center justify-center">
+              <img src="assets/BRAND IDENTITY.jpg" alt="" style="border-radius: 50px;">
+            </div>
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-white to-emerald-200 bg-clip-text text-transparent">
+              ByondX Technologies
+            </h1>
+          </div>
+          <p class="text-gray-300 text-lg mb-4">Future-ready IT studio</p>
+          <p class="text-gray-400">
+            Transforming businesses with cutting-edge technology solutions and innovative digital experiences.
+          </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="border border-gray-800 rounded-xl p-6">
+          <h4 class="text-white font-semibold mb-3 flex items-center gap-2">
+            <i class="fas fa-envelope text-blue-400"></i>
+            Stay Updated
+          </h4>
+          <p class="text-gray-400 text-sm mb-4">Subscribe to our newsletter for tech insights</p>
+          <div class="flex gap-2">
+            <input type="email" 
+                   placeholder="Your email" 
+                   class="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <button class="px-5 py-3 btn-primary text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300 text-sm">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Links -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-6 pb-3 border-b border-gray-800 flex items-center gap-2">
+          <i class="fas fa-cube text-blue-400"></i>
+          Product
+        </h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" 
+               class="text-gray-300 hover:text-emerald-300 transition-all duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs transform -translate-x-2 opacity-0 
+                         group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></i>
+              <span class="transition-all duration-300 group-hover:translate-x-1">Services</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="pricing.html" 
+               class="text-gray-300 hover:text-emerald-300 transition-all duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs transform -translate-x-2 opacity-0 
+                         group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></i>
+              <span class="transition-all duration-300 group-hover:translate-x-1">Pricing</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" 
+               class="text-gray-300 hover:text-emerald-300 transition-all duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs transform -translate-x-2 opacity-0 
+                         group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></i>
+              <span class="transition-all duration-300 group-hover:translate-x-1">Case Studies</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-6 pb-3 border-b border-gray-800 flex items-center gap-2">
+          <i class="fas fa-building text-emerald-400"></i>
+          Company
+        </h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="career.html" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              Careers
+            </a>
+          </li>
+          <li>
+            <a href="blog.html" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Connect & Contact -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-6 pb-3 border-b border-gray-800 flex items-center gap-2">
+          <i class="fas fa-globe text-purple-400"></i>
+          Connect
+        </h3>
+        
+        <!-- Contact Info -->
+        <div class="space-y-4 mb-6">
+          <div class="flex items-center gap-3 text-gray-300">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+              <i class="fas fa-phone text-blue-400 text-sm"></i>
+            </div>
+            <span class="text-sm">+1 (555) 123-4567</span>
+          </div>
+          <div class="flex items-center gap-3 text-gray-300">
+            <div class="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center">
+              <i class="fas fa-envelope text-emerald-400 text-sm"></i>
+            </div>
+            <span class="text-sm">hello@byondx.com</span>
+          </div>
+          <div class="flex items-center gap-3 text-gray-300">
+            <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+              <i class="fas fa-map-marker-alt text-purple-400 text-sm"></i>
+            </div>
+            <span class="text-sm">Silicon Valley, CA</span>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-blue-500/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-blue-600/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-pink-500/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-blue-700/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-800 my-8 relative">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 via-emerald-400 to-purple-500 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <!-- Copyright -->
+      <div class="text-center md:text-left">
+        <p class="text-gray-400 text-sm">
+          © <span id="currentYear"></span> ByondX Technologies. All rights reserved.
+        </p>
+        <p class="text-gray-500 text-xs mt-1">
+          Crafting digital excellence since 2023
+        </p>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="flex gap-6">
+        <a href="privacy_policy.html" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors duration-300">
+          Privacy Policy
+        </a>
+        <a href="term_and_condition.html" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors duration-300">
+          Terms of Service
+        </a>
+        <a href="refund_policy.html" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors duration-300">
+          Refund Policy
+        </a>
+      </div>
+
+      <!-- Back to Top -->
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+              class="px-4 py-4 rounded-full border border-gray-800 text-gray-400 hover:text-white hover:border-blue-500/50 transition-all duration-300 text-sm flex items-center gap-2">
+        <i class="fas fa-arrow-up"></i>
+        Back to Top
+      </button>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="js/data.js"></script>
+
+<!-- SCRIPT -->
+<script>
+  const clientData = [
+    {name:"John Smith", title:"CTO at FinTech Corp", image:"assets/clietn say.jpeg"},
+    {name:"Sarah Johnson", title:"Head of Design at CreativeHub", image:"assets/avatar b1.jpeg"},
+    {name:"Daniel Foster", title:"Product Manager at Amazon", image:"assets/avatar b4.jpeg"},
+    {name:"Michael Chen", title:"CTO at TechVision", image:"assets/clietn say1.jpeg"}
+  ];
+
+  const slides = document.querySelectorAll(".slide");
+  const dynamicClient = document.getElementById("dynamicClient");
+  const slideCounter = document.getElementById("slideCounter");
+  const indicatorsContainer = document.getElementById("indicatorsContainer");
+  let current = 0;
+
+  // Create indicators
+  slides.forEach((_, i) => {
+    const indicator = document.createElement("div");
+    indicator.className = `indicator ${i===0?'bg-[#3A7BFF] active':'bg-black/30'}`;
+    indicator.dataset.index = i;
+    indicatorsContainer.appendChild(indicator);
+  });
+  const indicators = document.querySelectorAll(".indicator");
+
+  function showSlide(index) {
+    slides.forEach((s,i)=>s.classList.toggle("hidden", i!==index));
+    slides.forEach((s,i)=>s.classList.toggle("active", i===index));
+
+    const img = dynamicClient.querySelector('img');
+    img.style.opacity='0';
+    setTimeout(()=>{
+      img.src = clientData[index].image;
+      img.alt = clientData[index].name;
+      img.style.opacity='1';
+    },300);
+
+    indicators.forEach((ind,i)=>{
+      if(i===index){
+        ind.classList.add('bg-[#3A7BFF]','active');
+        ind.classList.remove('bg-black/30');
+      }else{
+        ind.classList.remove('bg-[#3A7BFF]','active');
+        ind.classList.add('bg-black/30');
+      }
+    });
+
+    slideCounter.textContent = `${index+1} / ${slides.length}`;
+    current = index;
+  }
+
+  document.getElementById("nextBtn").onclick = ()=> showSlide((current+1)%slides.length);
+  document.getElementById("prevBtn").onclick = ()=> showSlide((current-1+slides.length)%slides.length);
+
+  indicators.forEach(ind=>{
+    ind.addEventListener("click",(e)=>{
+      showSlide(parseInt(e.target.dataset.index));
+    });
+  });
+
+  // Auto slide
+  let autoSlide = setInterval(()=> showSlide((current+1)%slides.length),8000);
+  const slider = document.getElementById("testimonialSlider");
+  slider.addEventListener("mouseenter", ()=> clearInterval(autoSlide));
+  slider.addEventListener("mouseleave", ()=> autoSlide = setInterval(()=> showSlide((current+1)%slides.length),8000));
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e)=>{
+    if(e.key==="ArrowLeft"||e.key==="ArrowUp") showSlide((current-1+slides.length)%slides.length);
+    if(e.key==="ArrowRight"||e.key==="ArrowDown") showSlide((current+1)%slides.length);
+  });
+
+  // Initialize
+  showSlide(current);
+</script>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('slider');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    
+    const cards = document.querySelectorAll('.slider-card');
+    const cardWidth = cards[0].offsetWidth + 24; // card width + gap
+    let currentPosition = 0;
+    let autoSlideInterval;
+    
+    // Auto slide functionality
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        slideToNext();
+      }, 4000); // Slide every 4 seconds
+    }
+    
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+    
+    // Slide to next card
+    function slideToNext() {
+      currentPosition += cardWidth;
+      
+      // Check if we've reached the end
+      if (currentPosition > slider.scrollWidth - slider.clientWidth) {
+        currentPosition = 0; // Reset to start
+      }
+      
+      slider.scrollTo({
+        left: currentPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Slide to previous card
+    function slideToPrev() {
+      currentPosition -= cardWidth;
+      
+      // Check if we're at the start
+      if (currentPosition < 0) {
+        currentPosition = slider.scrollWidth - slider.clientWidth;
+      }
+      
+      slider.scrollTo({
+        left: currentPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Manual navigation
+    prevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      slideToPrev();
+      setTimeout(startAutoSlide, 5000); // Restart after 5 seconds
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      slideToNext();
+      setTimeout(startAutoSlide, 5000); // Restart after 5 seconds
+    });
+    
+    // Pause auto-slide on hover
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+    
+    // Initialize auto slide
+    startAutoSlide();
+  });
+</script>
+
+
+<script>
+function playHeroVideo() {
+  const img = document.getElementById("thumbImg");
+  const video = document.getElementById("heroVideo");
+  const playButton = event.currentTarget;
+
+  // Hide thumbnail and play button
+  img.style.opacity = "0";
+  img.style.transition = "opacity 0.3s ease";
+  playButton.style.opacity = "0";
+  playButton.style.pointerEvents = "none";
+  
+  // Show and play video
+  setTimeout(() => {
+    img.style.display = "none";
+    playButton.style.display = "none";
+    video.classList.remove("hidden");
+    video.style.opacity = "0";
+    video.style.transition = "opacity 0.5s ease";
+    
+    setTimeout(() => {
+      video.style.opacity = "1";
+      video.play().catch(e => console.log("Autoplay prevented:", e));
+    }, 50);
+  }, 300);
+}
+
+// Add hover effect to video container
+document.addEventListener('DOMContentLoaded', function() {
+  const videoContainer = document.querySelector('.relative.rounded-2xl');
+  
+  if (videoContainer) {
+    videoContainer.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.02) translateY(-3px)';
+    });
+    
+    videoContainer.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  }
+});
+</script>
+
+
+
+<!-- CountUp Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".countup");
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-target");
+      let count = 0;
+      const increment = Math.ceil(target / 100); // speed
+      const updateCount = () => {
+        count += increment;
+        if(count > target) count = target;
+        counter.textContent = count;
+        if(count < target) {
+          requestAnimationFrame(updateCount);
+        }
+      };
+      updateCount();
+    });
+  });
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

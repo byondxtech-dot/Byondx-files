@@ -1,0 +1,3022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ByondX Technologies | Why Us page</title>
+
+<link rel="icon" type="image/png" href="assets/BRAND IDENTITY.jpg">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* Base Theme */
+  body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Light Grey Section */
+  .section-grey {
+    background-color: #F8F8F8;
+  }
+
+  /* Navbar - Transparent at top, glass effect on scroll */
+  .navbar-transparent {
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Button Styles with Slide Animation */
+  .btn-primary {
+    background-color: #000000;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary:active, .btn-primary:focus {
+    background-color: #1a1a1a;
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+    outline-offset: 2px;
+  }
+
+  /* Accent Colors */
+  .text-blue { color: #3A7BFF; }
+  .text-mint { color: #4DF2C0; }
+  .text-purple { color: #B39DFF; }
+
+  .bg-blue { background-color: #3A7BFF; }
+  .bg-mint { background-color: #4DF2C0; }
+  .bg-purple { background-color: #B39DFF; }
+
+  /* Hero Gradient */
+  .hero-gradient {
+    background: linear-gradient(135deg, #B39DFF 0%, #3A7BFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Scroll Container */
+  .scroll-container {
+    overflow: hidden;
+    height: 520px;
+    position: relative;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+    border-radius: 16px;
+  }
+
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    width: 100%;
+  }
+
+  @keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  @keyframes scrollDown {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+  }
+
+  .scroll-up {
+    animation: scrollUp linear infinite;
+    animation-duration: 25s;
+    transition: animation-duration 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-down {
+    animation: scrollDown linear infinite;
+    animation-duration: 20s;
+    transition: animation-duration 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-container:hover .scroll-up,
+  .scroll-container:hover .scroll-down {
+    animation-duration: 80s;
+  }
+
+  .scroll-img {
+    border-radius: 12px;
+    width: 90%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-img:hover {
+    transform: scale(1.03);
+  }
+
+  /* Footer */
+  .footer-black {
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+
+  .footer-link {
+    color: #4DF2C0;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #3A7BFF;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #3A7BFF;
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4DF2C0;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .scroll-container {
+      height: 380px;
+    }
+    
+    .scroll-img {
+      height: 160px;
+    }
+    
+    .hero-heading {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+    
+    /* Prevent body scroll when mobile menu is open */
+    body.menu-open {
+      overflow: hidden;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  /* Smooth transitions */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Underline effect for nav links */
+  .nav-underline {
+    position: relative;
+  }
+
+  .nav-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3A7BFF;
+    transition: width 0.3s ease;
+  }
+
+  .nav-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Simple button animation */
+  .btn-animate {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-animate .btn-text {
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-animate::after {
+    content: attr(data-hover);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-animate:hover .btn-text {
+    transform: translateY(-200%);
+  }
+
+  .btn-animate:hover::after {
+    transform: translateY(-100%);
+  }
+
+  /* Enhanced Mobile Menu Styles */
+  #mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    padding-top: 70px;
+  }
+
+  #mobile-menu.menu-open {
+    right: 0;
+  }
+
+  /* Mobile menu scrollable content */
+  .mobile-menu-content {
+    padding: 20px 24px 40px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Close button for mobile menu */
+  .mobile-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-close-btn:hover {
+    background: #3A7BFF;
+  }
+
+  .mobile-close-btn:hover svg {
+    stroke: white;
+  }
+
+  /* Enhanced mobile menu links */
+  .mobile-menu-link {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-link:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu-link:hover {
+    color: #3A7BFF;
+    padding-left: 10px;
+  }
+
+  /* Mobile menu buttons */
+  .mobile-menu-buttons {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+  }
+
+  /* Tablet view - burger menu visible */
+  @media (max-width: 1023px) {
+    .desktop-nav, .desktop-buttons {
+      display: none !important;
+    }
+    
+    .mobile-menu-btn {
+      display: block !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-menu-btn, #mobile-menu, .mobile-menu-overlay {
+      display: none !important;
+    }
+  }
+
+  /* ========== TWO-LEVEL MEGA MENU STYLES ========== */
+  .mega-menu-container {
+    position: relative;
+  }
+
+  .mega-menu {
+    position: absolute;
+    top: 200%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 800px;
+    max-width: 95vw;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    min-height: 500px;
+    max-height: 600px;
+  }
+
+  .mega-menu-container:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Left Side - Categories */
+  .mega-menu-left {
+    width: 280px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 24px 0;
+    overflow-y: auto;
+  }
+
+  .category-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+  }
+
+  .category-item:hover {
+    background: rgba(58, 123, 255, 0.05);
+    color: #3A7BFF;
+    border-left-color: #3A7BFF;
+  }
+
+  .category-item.active {
+    background: white;
+    color: #3A7BFF;
+    border-left-color: #3A7BFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .category-item i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+  }
+
+  .category-item:hover i,
+  .category-item.active i {
+    color: #3A7BFF;
+  }
+
+  /* Right Side - Subcategories */
+  .mega-menu-right {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .subcategory-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .subcategory-panel.active {
+    display: block;
+  }
+
+  .subcategory-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .subcategory-header h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .subcategory-header i {
+    color: #3A7BFF;
+    font-size: 20px;
+  }
+
+  .subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .subcategory-column h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .subcategory-column h5 i {
+    color: #3A7BFF;
+    font-size: 13px;
+  }
+
+  .subcategory-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .subcategory-column li {
+    margin-bottom: 10px;
+  }
+
+  .subcategory-column a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    text-decoration: none;
+    padding: 8px 0;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    padding-left: 8px;
+  }
+
+  .subcategory-column a:hover {
+    color: #3A7BFF;
+    background-color: rgba(58, 123, 255, 0.05);
+    padding-left: 12px;
+  }
+
+  .subcategory-column a i {
+    width: 16px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+  }
+
+  .subcategory-column a:hover i {
+    color: #3A7BFF;
+  }
+
+  /* Video Categories Special Grid */
+  .video-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .video-category-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .video-category-item:hover {
+    background: white;
+    border-color: rgba(58, 123, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .video-category-item i {
+    display: block;
+    font-size: 20px;
+    color: #3A7BFF;
+    margin-bottom: 8px;
+  }
+
+  .video-category-item span {
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* Arrow indicator */
+  .nav-link-with-menu {
+    position: relative;
+    padding-right: 18px;
+  }
+
+  .nav-link-with-menu::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: #3A7BFF;
+    transition: all 0.3s ease;
+  }
+
+  .mega-menu-container:hover .nav-link-with-menu::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  /* ========== WHY US MEGA MENU ========== */
+  .why-us-mega-menu {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    width: 360px;
+    max-width: 90vw;
+  }
+
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .why-us-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+
+  .why-us-feature i {
+    color: #3A7BFF;
+    background-color: rgba(58, 123, 255, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .why-us-feature span {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  /* CTA in Why Us */
+  .why-us-cta {
+    background: linear-gradient(to right, #3A7BFF, #4DF2C0);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    margin-top: 16px;
+  }
+
+  .why-us-cta h4 {
+    color: white !important;
+    border: none !important;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .why-us-cta p {
+    font-size: 14px;
+    opacity: 0.95;
+    margin-bottom: 16px;
+  }
+
+  .why-us-cta .btn-animate {
+    background: white;
+    color: #3A7BFF;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  /* ========== RESPONSIVE ADJUSTMENTS ========== */
+  @media (max-width: 768px) {
+    .mega-menu {
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      width: 95vw;
+      max-height: 70vh;
+      border-radius: 12px;
+      flex-direction: column;
+      min-height: auto;
+    }
+    
+    .mega-menu-left {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    
+    .category-item {
+      padding: 12px 20px;
+      font-size: 13px;
+    }
+    
+    .subcategory-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .video-categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ========== MOBILE DROPDOWN STYLES ========== */
+  .mobile-dropdown {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .mobile-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobile-dropdown-header i {
+    transition: transform 0.3s ease;
+    color: #3A7BFF;
+  }
+
+  .mobile-dropdown-header.active i {
+    transform: rotate(180deg);
+  }
+
+  .mobile-dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-left: 20px;
+  }
+
+  .mobile-dropdown-content.active {
+    max-height: 1000px;
+    padding-bottom: 16px;
+  }
+
+  .mobile-submenu {
+    padding: 8px 0;
+  }
+
+  .mobile-submenu h5 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-submenu h5 i {
+    font-size: 14px;
+  }
+
+  .mobile-submenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+  }
+
+  .mobile-submenu li {
+    margin-bottom: 6px;
+  }
+
+  .mobile-submenu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+    text-decoration: none;
+    padding: 6px 0;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    padding-left: 8px;
+  }
+
+  .mobile-submenu a:hover {
+    color: #3A7BFF;
+    background-color: rgba(58, 123, 255, 0.05);
+    padding-left: 12px;
+  }
+
+  .mobile-submenu a i {
+    width: 18px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  /* Mobile Why Us Content */
+  .mobile-why-us-features {
+    margin-top: 12px;
+  }
+
+  .mobile-why-us-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-why-us-feature i {
+    color: #3A7BFF;
+    font-size: 14px;
+  }
+
+  .mobile-why-us-feature span {
+    font-size: 14px;
+    color: #333;
+  }
+
+  /* Mobile CTA */
+  .mobile-cta {
+    background: linear-gradient(to right, #3A7BFF, #4DF2C0);
+    border-radius: 8px;
+    padding: 16px;
+    color: white;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .mobile-cta h5 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-cta p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+  }
+
+  /* Mobile dropdown animations */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-dropdown-content.active .mobile-submenu {
+    animation: slideDown 0.3s ease forwards;
+    opacity: 0;
+    animation-delay: calc(var(--item-index, 0) * 0.05s);
+  }
+
+  /* Hide mega menu on mobile */
+  @media (max-width: 767px) {
+    .mega-menu-container .mega-menu {
+      display: none;
+    }
+    
+    .mega-menu-container:hover .mega-menu {
+      display: none;
+    }
+  }
+
+  /* Service Page Styles */
+  .service-hero {
+    background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+    padding: 100px 0 60px;
+    margin-top: 0;
+  }
+
+  .service-icon {
+    font-size: 48px;
+    color: #3A7BFF;
+    margin-bottom: 20px;
+  }
+
+  .service-feature-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+
+  .service-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(58, 123, 255, 0.1);
+    border-color: #3A7BFF;
+  }
+
+  .process-step {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 30px;
+  }
+
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #3A7BFF, #4DF2C0);
+  }
+
+  .process-step-number {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #3A7BFF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(58, 123, 255, 0.15);
+  }
+</style>
+</head>
+<body class="text-black overflow-x-hidden">
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+<!-- Responsive Header -->
+<header id="navbar" class="navbar-transparent fixed w-full z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-4">
+  <a href="index.html">  <div style="display: flex; align-items: center; gap: 10px;">
+
+        <!-- Rounded Logo -->
+        <div>
+            <img src="assets/BRAND IDENTITY.jpg" width="40px" 
+                style="border-radius: 50%; object-fit: cover;" alt="">
+        </div>
+
+        <!-- Text Column -->
+        <div style="display: flex; flex-direction: column; line-height: 1.1;">
+            <h1 class="text-black sm:text-lg font-bold text-blue">
+                ByondX Technologies
+            </h1>
+            <p class="text-xs text-gray-600">Future-ready IT studio</p>
+        </div>
+
+    </div>  </a>
+
+
+    <!-- Desktop Menu -->
+    <nav class="desktop-nav hidden lg:flex space-x-8 text-sm">
+      <!-- Services with Two-Level Mega Menu -->
+      <div class="mega-menu-container">
+        <a href="#" class=" hover:text-blue smooth-transition nav-link-with-menu">Services</a>
+        <div class="mega-menu">
+          <!-- Left Side - Categories -->
+          <div class="mega-menu-left">
+            <div class="category-item active" data-category="ai">
+              <i class="fas fa-robot"></i>
+              <span>AI & Automation</span>
+            </div>
+            <div class="category-item" data-category="digital-marketing">
+              <i class="fas fa-bullhorn"></i>
+              <span>Digital Marketing</span>
+            </div>
+            <div class="category-item" data-category="web">
+              <i class="fas fa-globe"></i>
+              <span>Web Development</span>
+            </div>
+            <div class="category-item" data-category="creative">
+              <i class="fas fa-palette"></i>
+              <span>Creative Design</span>
+            </div>
+            <div class="category-item" data-category="video">
+              <i class="fas fa-video"></i>
+              <span>Video Editing</span>
+            </div>
+            <div class="category-item" data-category="marketplace">
+              <i class="fas fa-store"></i>
+              <span>Marketplace</span>
+            </div>
+            <div class="category-item" data-category="business">
+              <i class="fas fa-chart-line"></i>
+              <span>Business Solutions</span>
+            </div>
+            <div class="category-item" data-category="content">
+              <i class="fas fa-pen"></i>
+              <span>Content & Copy</span>
+            </div>
+          </div>
+
+          <!-- Right Side - Subcategories -->
+          <div class="mega-menu-right">
+            <!-- AI & Automation Panel -->
+            <div class="subcategory-panel active" id="ai-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-robot"></i> AI & Automation Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-brain"></i> AI Agents</h5>
+                  <ul>
+                    <li><a href="service.html?service=ai-agents"><i class="fas fa-cog"></i> AI for all types</a></li>
+                    <li><a href="service.html?service=automation-solutions"><i class="fas fa-cogs"></i> Automation solutions</a></li>
+                    <li><a href="service.html?service=technical-optimization"><i class="fas fa-chart-line"></i> Technical optimization</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-robot"></i> AI Automation</h5>
+                  <ul>
+                    <li><a href="service.html?service=ai-automation"><i class="fas fa-robot"></i> AI automation for all types</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-comments"></i> Chatbots</h5>
+                  <ul>
+                    <li><a href="service.html?service=whatsapp-chatbots"><i class="fab fa-whatsapp"></i> WhatsApp Chatbots</a></li>
+                    <li><a href="service.html?service=web-chatbots"><i class="fas fa-globe"></i> Web Chatbots</a></li>
+                    <li><a href="service.html?service=instagram-chatbots"><i class="fab fa-instagram"></i> Instagram Chatbots</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-cloud"></i> SaaS Solutions</h5>
+                  <ul>
+                    <li><a href="service.html?service=custom-saas"><i class="fas fa-cloud"></i> Custom SaaS Development</a></li>
+                    <li><a href="service.html?service=saas-maintenance"><i class="fas fa-tools"></i> SaaS Maintenance</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Digital Marketing Panel -->
+            <div class="subcategory-panel" id="digital-marketing-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-bullhorn"></i> Digital Marketing Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-chess"></i> Strategic Marketing</h5>
+                  <ul>
+                    <li><a href="service.html?service=digital-marketing-strategy"><i class="fas fa-bullseye"></i> Digital Marketing Strategy</a></li>
+                    <li><a href="service.html?service=marketing-analytics"><i class="fas fa-chart-line"></i> Marketing Analytics</a></li>
+                    <li><a href="service.html?service=content-strategy"><i class="fas fa-file-alt"></i> Content Strategy</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-users"></i> Social Media Management</h5>
+                  <ul>
+                    <li><a href="service.html?service=facebook-management"><i class="fab fa-facebook"></i> Facebook Management</a></li>
+                    <li><a href="service.html?service=instagram-management"><i class="fab fa-instagram"></i> Instagram Management</a></li>
+                    <li><a href="service.html?service=twitter-management"><i class="fab fa-twitter"></i> Twitter Management</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-search"></i> SEO Optimization</h5>
+                  <ul>
+                    <li><a href="service.html?service=onpage-seo"><i class="fas fa-search"></i> On-page SEO</a></li>
+                    <li><a href="service.html?service=offpage-seo"><i class="fas fa-link"></i> Off-page SEO</a></li>
+                    <li><a href="service.html?service=seo-analytics"><i class="fas fa-chart-bar"></i> SEO Analytics</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-envelope"></i> Email Marketing</h5>
+                  <ul>
+                    <li><a href="service.html?service=email-campaigns"><i class="fas fa-mail-bulk"></i> Email Campaigns</a></li>
+                    <li><a href="service.html?service=newsletter-management"><i class="fas fa-list"></i> Newsletter Management</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Web Development Panel -->
+            <div class="subcategory-panel" id="web-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-globe"></i> Web Development Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-code"></i> Website Development</h5>
+                  <ul>
+                    <li><a href="service.html?service=custom-website"><i class="fas fa-laptop-code"></i> Custom Website Development</a></li>
+                    <li><a href="service.html?service=wordpress-website"><i class="fab fa-wordpress"></i> WordPress Website</a></li>
+                    <li><a href="service.html?service=shopify-ecommerce"><i class="fas fa-shopping-cart"></i> Shopify & E-commerce</a></li>
+                    <li><a href="service.html?service=web-applications"><i class="fas fa-window-restore"></i> Web Applications</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-redo"></i> Website Management</h5>
+                  <ul>
+                    <li><a href="service.html?service=website-redesign"><i class="fas fa-redo"></i> Website Redesign</a></li>
+                    <li><a href="service.html?service=website-maintenance"><i class="fas fa-tools"></i> Website Maintenance</a></li>
+                    <li><a href="service.html?service=landing-page-development"><i class="fas fa-flag"></i> Landing Page Development</a></li>
+                    <li><a href="service.html?service=backend-management"><i class="fas fa-server"></i> Backend Management</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-chart-pie"></i> Data Analytics</h5>
+                  <ul>
+                    <li><a href="service.html?service=business-analytics"><i class="fas fa-chart-line"></i> Business Analytics</a></li>
+                    <li><a href="service.html?service=data-visualization"><i class="fas fa-database"></i> Data Visualization</a></li>
+                    <li><a href="service.html?service=performance-analytics"><i class="fas fa-chart-bar"></i> Performance Analytics</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-list"></i> Product Setup</h5>
+                  <ul>
+                    <li><a href="service.html?service=product-listing"><i class="fas fa-list"></i> Product Listing / Catalogue Setup</a></li>
+                    <li><a href="service.html?service=inventory-management"><i class="fas fa-boxes"></i> Inventory Management</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Creative Design Panel -->
+            <div class="subcategory-panel" id="creative-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-palette"></i> Creative Design Services</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-ad"></i> Ad Creatives</h5>
+                  <ul>
+                    <li><a href="service.html?service=digital-ad-creatives"><i class="fas fa-bullhorn"></i> Digital Ad Creatives</a></li>
+                    <li><a href="service.html?service=print-ad-creatives"><i class="fas fa-newspaper"></i> Print Ad Creatives</a></li>
+                  </ul>
+                  
+                  <h5><i class="fab fa-instagram"></i> Social Media Creatives</h5>
+                  <ul>
+                    <li><a href="service.html?service=instagram-posts"><i class="fab fa-instagram"></i> Instagram Posts</a></li>
+                    <li><a href="service.html?service=facebook-posts"><i class="fab fa-facebook"></i> Facebook Posts</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-chart-line"></i> Presentation Design</h5>
+                  <ul>
+                    <li><a href="service.html?service=business-presentations"><i class="fas fa-presentation"></i> Business Presentations</a></li>
+                    <li><a href="service.html?service=investor-decks"><i class="fas fa-chart-bar"></i> Investor Decks</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-paint-brush"></i> Branding Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=brand-identity"><i class="fas fa-trademark"></i> Brand Identity Design</a></li>
+                    <li><a href="service.html?service=ui-ux-design"><i class="fas fa-pencil-ruler"></i> UI/UX Design</a></li>
+                    <li><a href="service.html?service=illustration-design"><i class="fas fa-image"></i> Illustration Design</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-film"></i> Motion Design</h5>
+                  <ul>
+                    <li><a href="service.html?service=animated-graphics"><i class="fas fa-film"></i> Animated Graphics</a></li>
+                    <li><a href="service.html?service=motion-graphics"><i class="fas fa-video"></i> Motion Graphics</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Editing Panel -->
+            <div class="subcategory-panel" id="video-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-video"></i> Video Editing Services</h4>
+              </div>
+              <div class="video-categories-grid">
+                <div class="video-category-item">
+                  <i class="fab fa-facebook"></i>
+                  <span>Social Media Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-bullhorn"></i>
+                  <span>Digital Marketing</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-briefcase"></i>
+                  <span>Business & Companies</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>Educational Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-heartbeat"></i>
+                  <span>Healthcare & Fitness</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-chart-bar"></i>
+                  <span>Finance Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-podcast"></i>
+                  <span>Podcasts</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-tshirt"></i>
+                  <span>Beauty & Fashion</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>E-commerce Videos</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-home"></i>
+                  <span>Real Estate</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-film"></i>
+                  <span>Entertainment</span>
+                </div>
+                <div class="video-category-item">
+                  <i class="fas fa-laptop"></i>
+                  <span>Technology</span>
+                </div>
+              </div>
+              <div style="margin-top: 20px; text-align: center;">
+                <a href="#" style="color: #3A7BFF; font-size: 13px; font-weight: 500;">
+                  <i class="fas fa-arrow-right mr-2"></i>View All 20+ Video Categories
+                </a>
+              </div>
+            </div>
+
+            <!-- Marketplace Panel -->
+            <div class="subcategory-panel" id="marketplace-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-store"></i> Marketplace Management</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-store-alt"></i> Meesho</h5>
+                  <ul>
+                    <li><a href="service.html?service=meesho-account-creation"><i class="fas fa-user-plus"></i> Meesho Account Creation</a></li>
+                    <li><a href="service.html?service=product-listing-meesho"><i class="fas fa-list"></i> Product Listing on Meesho</a></li>
+                    <li><a href="service.html?service=meesho-store-management"><i class="fas fa-chart-line"></i> Meesho Store Management</a></li>
+                  </ul>
+                  
+                  <h5><i class="fab fa-amazon"></i> Amazon</h5>
+                  <ul>
+                    <li><a href="service.html?service=amazon-account-creation"><i class="fas fa-user-plus"></i> Amazon Account Creation</a></li>
+                    <li><a href="service.html?service=amazon-product-listing"><i class="fas fa-list"></i> Amazon Product Listing</a></li>
+                    <li><a href="service.html?service=amazon-store-optimization"><i class="fas fa-star"></i> Amazon Store Optimization</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-trademark"></i> Brand Registration</h5>
+                  <ul>
+                    <li><a href="service.html?service=brand-name-registration"><i class="fas fa-trademark"></i> Brand Name Registration</a></li>
+                    <li><a href="service.html?service=trademark-registration"><i class="fas fa-copyright"></i> Trademark Registration</a></li>
+                    <li><a href="service.html?service=legal-documentation"><i class="fas fa-passport"></i> Legal Documentation</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-user-check"></i> Influencer Marketing</h5>
+                  <ul>
+                    <li><a href="service.html?service=influencer-content-creation"><i class="fas fa-user-check"></i> Influencer Content Creation</a></li>
+                    <li><a href="service.html?service=influencer-marketing"><i class="fas fa-bullhorn"></i> Influencer Marketing</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Solutions Panel -->
+            <div class="subcategory-panel" id="business-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-chart-line"></i> Business Solutions</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-handshake"></i> CRM Solutions</h5>
+                  <ul>
+                    <li><a href="service.html?service=crm-setup-integration"><i class="fas fa-cogs"></i> CRM Setup & Integration</a></li>
+                    <li><a href="service.html?service=customer-relationship-management"><i class="fas fa-users"></i> Customer Relationship Management</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-sms"></i> Bulk SMS Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=bulk-sms-marketing"><i class="fas fa-sms"></i> Bulk SMS Marketing</a></li>
+                    <li><a href="service.html?service=messaging-solutions"><i class="fas fa-envelope"></i> Messaging Solutions</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-camera"></i> Photography & Videography</h5>
+                  <ul>
+                    <li><a href="service.html?service=professional-photography"><i class="fas fa-camera"></i> Professional Photography</a></li>
+                    <li><a href="service.html?service=video-production"><i class="fas fa-video"></i> Video Production</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-box"></i> Other Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=print-design"><i class="fas fa-print"></i> Print Design</a></li>
+                    <li><a href="service.html?service=packaging-design"><i class="fas fa-box"></i> Packaging Design</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content & Copy Panel -->
+            <div class="subcategory-panel" id="content-panel">
+              <div class="subcategory-header">
+                <h4><i class="fas fa-pen"></i> Content & Copywriting</h4>
+              </div>
+              <div class="subcategory-grid">
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-pen"></i> Copywriting Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=ad-copywriting"><i class="fas fa-ad"></i> Ad Copywriting</a></li>
+                    <li><a href="service.html?service=blog-content"><i class="fas fa-blog"></i> Blog Content</a></li>
+                    <li><a href="service.html?service=website-content"><i class="fas fa-file-alt"></i> Website Content</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-book"></i> E-Book & Reports</h5>
+                  <ul>
+                    <li><a href="service.html?service=ebook-design"><i class="fas fa-book"></i> E-Book Design</a></li>
+                    <li><a href="service.html?service=report-design"><i class="fas fa-file-alt"></i> Report Design</a></li>
+                  </ul>
+                </div>
+                
+                <div class="subcategory-column">
+                  <h5><i class="fas fa-lightbulb"></i> Concept Creation</h5>
+                  <ul>
+                    <li><a href="service.html?service=creative-concepts"><i class="fas fa-lightbulb"></i> Creative Concepts</a></li>
+                    <li><a href="service.html?service=idea-development"><i class="fas fa-brain"></i> Idea Development</a></li>
+                  </ul>
+                  
+                  <h5><i class="fas fa-edit"></i> Editing Services</h5>
+                  <ul>
+                    <li><a href="service.html?service=content-editing"><i class="fas fa-edit"></i> Content Editing</a></li>
+                    <li><a href="service.html?service=proofreading"><i class="fas fa-spell-check"></i> Proofreading</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="our_work.html" class="nav-underline hover:text-blue smooth-transition">Our work</a>
+      
+      <!-- Why Us with Mega Menu (Original Design) -->
+      <div class="mega-menu-container">
+        <a href="#" class=" hover:text-blue smooth-transition nav-link-with-menu">Why us</a>
+        <div class="mega-menu why-us-mega-menu">
+          <div class="why-us-grid">
+            <div>
+              <h4><i class="fas fa-star"></i> Why Choose ByondX?</h4>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Expert team with 10+ years experience</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Timely delivery guaranteed</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Competitive pricing</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>24/7 customer support</span>
+              </div>
+              
+              <div class="why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>100+ satisfied clients</span>
+              </div>
+              
+              <div class="why-us-cta">
+                <h4>Ready to start your project?</h4>
+                <p>Get a free consultation with our experts</p>
+               <a href="why_us.html"> <button class="btn-animate px-4 py-2 bg-white text-blue font-semibold rounded text-sm relative overflow-hidden"
+                        data-hover="Know More">
+                  <span class="btn-text">Know More</span>
+                </button> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="pricing.html" class="nav-underline hover:text-blue smooth-transition">Pricing</a>
+      <a href="contact.html" class="nav-underline hover:text-blue smooth-transition">Contact Us</a>
+    </nav>
+
+    <!-- Desktop Buttons with Slide Animation -->
+    <div class="desktop-buttons hidden lg:flex space-x-3">
+        <!-- Book a demo Button with Slide Animation -->
+        <button class="btn-animate px-5 py-2 btn-primary font-semibold rounded-full shadow-lg relative overflow-hidden"
+                data-hover="Book Demo">
+          <span class="btn-text">Book a demo</span>
+        </button>
+      <!-- Sign In Button with Slide Animation -->
+     <a href="https://partner.byondxtech.com/index.php/login"> <button class="btn-animate px-5 py-2 border border-blue-500 text-blue font-semibold rounded-full hover:bg-blue hover:text-[#4DF2C0] hover:border-[#4DF2C0] smooth-transition relative overflow-hidden"
+              data-hover="Sign In">
+        <span class="btn-text">Sign In</span>
+      </button> </a>
+      
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-btn lg:hidden">
+      <button id="menu-btn" class="focus:outline-none p-2 hover:bg-gray-100 rounded-lg smooth-transition">
+        <svg id="menu-icon" class="w-7 h-7 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="lg:hidden">
+  <!-- Close Button -->
+  <div class="mobile-close-btn" id="mobile-close-btn">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </div>
+  
+  <!-- Menu Content -->
+  <div class="mobile-menu-content">
+    
+    <!-- Navigation Links -->
+    <nav class="mb-6">
+      <!-- Services Dropdown -->
+      <div class="mobile-dropdown">
+        <div class="mobile-dropdown-header" onclick="toggleMobileDropdown('services-dropdown')">
+          <span>Services</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="services-dropdown" class="mobile-dropdown-content">
+          <!-- AI Agents -->
+          <div class="mobile-submenu" style="--item-index: 0">
+            <h5><i class="fas fa-robot"></i> AI Agents</h5>
+            <ul>
+              <li><a href="service.html?service=ai-agents"><i class="fas fa-brain"></i> AI for all types</a></li>
+              <li><a href="service.html?service=automation-solutions"><i class="fas fa-cogs"></i> Automation solutions</a></li>
+              <li><a href="service.html?service=technical-optimization"><i class="fas fa-chart-line"></i> Technical process optimization</a></li>
+            </ul>
+          </div>
+          
+          <!-- Digital Marketing -->
+          <div class="mobile-submenu" style="--item-index: 1">
+            <h5><i class="fas fa-bullhorn"></i> Digital Marketing</h5>
+            <ul>
+              <li><a href="service.html?service=digital-marketing-strategy"><i class="fas fa-chess"></i> Strategic Marketing</a></li>
+              <li><a href="service.html?service=facebook-management"><i class="fas fa-users"></i> Social Media Management</a></li>
+              <li><a href="service.html?service=onpage-seo"><i class="fas fa-search"></i> SEO Optimization</a></li>
+              <li><a href="service.html?service=digital-ad-creatives"><i class="fas fa-paint-brush"></i> Creative Design</a></li>
+              <li><a href="service.html?service=custom-website"><i class="fas fa-tools"></i> Technical Solutions</a></li>
+              <li><a href="service.html?service=ai-automation"><i class="fas fa-robot"></i> Automation Services</a></li>
+            </ul>
+          </div>
+          
+          <!-- Website Management & Development -->
+          <div class="mobile-submenu" style="--item-index: 2">
+            <h5><i class="fas fa-globe"></i> Website Management & Development</h5>
+            <ul>
+              <li><a href="service.html?service=custom-website"><i class="fas fa-code"></i> Custom Website Development</a></li>
+              <li><a href="service.html?service=wordpress-website"><i class="fab fa-wordpress"></i> WordPress Website</a></li>
+              <li><a href="service.html?service=shopify-ecommerce"><i class="fas fa-shopping-cart"></i> Shopify & E-commerce</a></li>
+              <li><a href="service.html?service=web-applications"><i class="fas fa-window-restore"></i> Web Applications</a></li>
+              <li><a href="service.html?service=website-redesign"><i class="fas fa-redo"></i> Website Redesign</a></li>
+              <li><a href="service.html?service=website-maintenance"><i class="fas fa-tools"></i> Website Maintenance</a></li>
+              <li><a href="service.html?service=landing-page-development"><i class="fas fa-flag"></i> Landing Page Development</a></li>
+              <li><a href="service.html?service=backend-management"><i class="fas fa-server"></i> Backend Management</a></li>
+            </ul>
+          </div>
+          
+          <!-- Creative Design -->
+          <div class="mobile-submenu" style="--item-index: 3">
+            <h5><i class="fas fa-palette"></i> Creative Design</h5>
+            <ul>
+              <li><a href="service.html?service=digital-ad-creatives"><i class="fas fa-ad"></i> Ad Creatives</a></li>
+              <li><a href="service.html?service=instagram-posts"><i class="fab fa-instagram"></i> Social Media Creatives</a></li>
+              <li><a href="service.html?service=business-presentations"><i class="fas fa-chart-line"></i> Presentation Design</a></li>
+              <li><a href="service.html?service=illustration-design"><i class="fas fa-paint-brush"></i> Illustration Design</a></li>
+              <li><a href="service.html?service=brand-identity"><i class="fas fa-trademark"></i> Branding Services</a></li>
+              <li><a href="service.html?service=ebook-design"><i class="fas fa-book"></i> E-Book Design</a></li>
+              <li><a href="service.html?service=creative-concepts"><i class="fas fa-lightbulb"></i> Concept Creation</a></li>
+              <li><a href="service.html?service=print-design"><i class="fas fa-print"></i> Print Design</a></li>
+              <li><a href="service.html?service=packaging-design"><i class="fas fa-box"></i> Packaging Design</a></li>
+            </ul>
+          </div>
+          
+          <!-- Video Editing -->
+          <div class="mobile-submenu" style="--item-index: 4">
+            <h5><i class="fas fa-video"></i> Video Editing (All Categories)</h5>
+            <ul>
+              <li><a href="service.html?service=social-media-videos"><i class="fab fa-facebook"></i> Social Media Videos</a></li>
+              <li><a href="service.html?service=digital-marketing-videos"><i class="fas fa-bullhorn"></i> Digital Marketing</a></li>
+              <li><a href="service.html?service=business-company-videos"><i class="fas fa-briefcase"></i> Business & Companies</a></li>
+              <li><a href="service.html?service=educational-videos"><i class="fas fa-graduation-cap"></i> Educational Videos</a></li>
+              <li><a href="service.html?service=healthcare-fitness-videos"><i class="fas fa-heartbeat"></i> Healthcare & Fitness</a></li>
+              <li><a href="service.html?service=finance-videos"><i class="fas fa-chart-bar"></i> Finance</a></li>
+              <li><a href="service.html?service=podcast-videos"><i class="fas fa-podcast"></i> Podcasts</a></li>
+              <li><a href="service.html?service=beauty-fashion-videos"><i class="fas fa-tshirt"></i> Beauty & Fashion</a></li>
+              <li><a href="service.html?service=ecommerce-videos"><i class="fas fa-shopping-bag"></i> E-commerce</a></li>
+              <li><a href="service.html?service=real-estate-videos"><i class="fas fa-home"></i> Real Estate</a></li>
+              <li><a href="service.html?service=entertainment-videos"><i class="fas fa-film"></i> Entertainment</a></li>
+              <li><a href="service.html?service=technology-videos"><i class="fas fa-laptop"></i> Technology</a></li>
+              <li><a href="service.html?service=automobile-videos"><i class="fas fa-car"></i> Automobile</a></li>
+              <li><a href="service.html?service=travel-hospitality-videos"><i class="fas fa-plane"></i> Travel & Hospitality</a></li>
+              <li><a href="service.html?service=food-beverages-videos"><i class="fas fa-utensils"></i> Food & Beverages</a></li>
+              <li><a href="service.html?service=music-videos"><i class="fas fa-music"></i> Music Videos</a></li>
+              <li><a href="service.html?service=spiritual-wellness-videos"><i class="fas fa-spa"></i> Spiritual & Wellness</a></li>
+              <li><a href="service.html?service=news-media-videos"><i class="fas fa-newspaper"></i> News & Media</a></li>
+              <li><a href="service.html?service=wedding-events-videos"><i class="fas fa-ring"></i> Wedding & Events</a></li>
+              <li><a href="service.html?service=lifestyle-videos"><i class="fas fa-leaf"></i> Lifestyle</a></li>
+            </ul>
+          </div>
+          
+          <!-- Other Services -->
+          <div class="mobile-submenu" style="--item-index: 5">
+            <h5><i class="fas fa-cogs"></i> Other Services</h5>
+            <ul>
+              <li><a href="service.html?service=meesho-account-creation"><i class="fas fa-store"></i> Marketplace Management</a></li>
+              <li><a href="service.html?service=brand-name-registration"><i class="fas fa-trademark"></i> Brand Name Registration</a></li>
+              <li><a href="service.html?service=ai-automation"><i class="fas fa-robot"></i> AI Automation</a></li>
+              <li><a href="service.html?service=business-analytics"><i class="fas fa-chart-pie"></i> Data Analytics</a></li>
+              <li><a href="service.html?service=product-listing"><i class="fas fa-list"></i> Product Listing Setup</a></li>
+              <li><a href="service.html?service=influencer-marketing"><i class="fas fa-user-check"></i> Influencer Marketing</a></li>
+              <li><a href="service.html?service=inventory-management"><i class="fas fa-boxes"></i> Inventory Management</a></li>
+              <li><a href="service.html?service=whatsapp-chatbots"><i class="fas fa-comments"></i> Chatbots</a></li>
+              <li><a href="service.html?service=animated-graphics"><i class="fas fa-film"></i> Motion Design</a></li>
+              <li><a href="service.html?service=professional-photography"><i class="fas fa-camera"></i> Photography & Videography</a></li>
+              <li><a href="service.html?service=ad-copywriting"><i class="fas fa-pen"></i> Copywriting</a></li>
+              <li><a href="service.html?service=bulk-sms-marketing"><i class="fas fa-sms"></i> Bulk SMS Services</a></li>
+              <li><a href="service.html?service=custom-saas"><i class="fas fa-cloud"></i> SaaS Solutions</a></li>
+              <li><a href="service.html?service=crm-setup-integration"><i class="fas fa-handshake"></i> CRM Solutions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <a href="our_work.html" class="mobile-menu-link">
+        <svg class="w-5 h-5 mr-3 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+        </svg>
+        Our work
+      </a>
+      
+      <!-- Why Us Dropdown -->
+      <div class="mobile-dropdown">
+        <div class="mobile-dropdown-header" onclick="toggleMobileDropdown('why-us-dropdown')">
+          <span>Why us</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div id="why-us-dropdown" class="mobile-dropdown-content">
+          <div class="mobile-submenu" style="--item-index: 0">
+            <h5><i class="fas fa-star"></i> Why Choose ByondX?</h5>
+            
+            <div class="mobile-why-us-features">
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Expert team with 10+ years experience</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Timely delivery guaranteed</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Competitive pricing</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>24/7 customer support</span>
+              </div>
+              
+              <div class="mobile-why-us-feature">
+                <i class="fas fa-check-circle"></i>
+                <span>100+ satisfied clients</span>
+              </div>
+            </div>
+            
+            <div class="mobile-cta">
+              <h5>Ready to start your project?</h5>
+              <p>Get a free consultation with our experts</p>
+             <a href="why_us.html"> <button class="btn-animate px-4 py-2 bg-white text-blue font-semibold rounded text-sm relative overflow-hidden"
+                      data-hover="Know More">
+                <span class="btn-text">Know More</span>
+              </button> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="pricing.html" class="mobile-menu-link">
+        <svg class="w-5 h-5 mr-3 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Pricing
+      </a>
+      <a href="contact.html" class="mobile-menu-link">
+        <svg class="w-5 h-5 mr-3 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+        </svg>
+        Contact Us
+      </a>
+    </nav>
+    
+    <!-- Mobile Menu Buttons with Slide Animation -->
+    <div class="mobile-menu-buttons">
+      <!-- Sign In Button with Slide Animation -->
+     <a href="https://partner.byondxtech.com/index.php/login"> <button class="btn-animate w-full py-3 mb-3 border border-blue text-blue font-semibold rounded-lg hover:bg-blue hover:text-white smooth-transition relative overflow-hidden"
+              data-hover="Sign In">
+        <span class="btn-text flex items-center justify-center">
+          Sign in
+        </span>
+      </button> </a>
+      
+      <!-- Book a demo Button with Slide Animation -->
+      <button class="btn-animate w-full py-3 btn-primary font-semibold rounded-lg relative overflow-hidden"
+              data-hover="Book Demo">
+        <span class="btn-text flex items-center justify-center">
+          Book a demo
+        </span>
+      </button>
+    </div>
+    
+    <!-- Contact Info -->
+    <div class="mt-8 pt-6 border-t border-gray-200">
+      <h3 class="text-sm font-semibold text-gray-500 mb-3">CONTACT US</h3>
+      <p class="text-gray-600 mb-1">
+        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        +1 (555) 123-4567
+      </p>
+      <p class="text-gray-600">
+        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        hello@byondx.com
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Portfolio/Our Work Page for ByondX Technologies -->
+<section id="portfolio" class="pt-32 bg-gradient-to-b from-white to-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    
+    <!-- Hero Section -->
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block px-4 py-2 bg-blue/10 text-blue text-sm font-medium rounded-full mb-6">
+        Our Portfolio
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        Transforming <span class="hero-gradient">Ideas</span> into Reality
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        Discover how ByondX Technologies delivers cutting-edge solutions across industries. 
+        Each project represents our commitment to innovation, quality, and client success.
+      </p>
+      <div class="flex items-center justify-center gap-4">
+        <div class="flex items-center text-sm text-gray-500">
+          <i class="fas fa-star text-yellow-400 mr-1"></i>
+          <span>4.9/5 Client Rating</span>
+        </div>
+        <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+        <div class="text-sm text-gray-500">
+          <span class="text-blue font-medium">150+</span> Projects Delivered
+        </div>
+        <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+        <div class="text-sm text-gray-500">
+          <span class="text-blue font-medium">98%</span> Retention Rate
+        </div>
+      </div>
+    </div>
+
+    <!-- Client Success Stories -->
+    <section class="mb-20 fade-in">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
+          Client <span class="text-blue">Success Stories</span>
+        </h2>
+        <a href="#" class="text-blue font-medium text-sm flex items-center gap-2 hover:gap-3 transition-all">
+          View All Case Studies
+          <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+        </a>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Story 1 -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-blue/20 transition-all duration-300 group">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue to-purple flex items-center justify-center">
+              <i class="fas fa-robot text-white text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg">TechScale AI</h3>
+              <p class="text-gray-500 text-sm">AI Automation Startup</p>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-6">
+            Developed a custom AI automation platform that reduced manual processes by 80% and increased operational efficiency by 150%.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Revenue Growth</span>
+              <span class="text-green-600 font-bold">+245%</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Process Automation</span>
+              <span class="text-blue font-bold">85%</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Project Duration</span>
+              <span class="text-gray-700 font-medium">4 Months</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-mint/20 transition-all duration-300 group">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-mint to-blue flex items-center justify-center">
+              <i class="fas fa-shopping-cart text-gray-900 text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg">StyleHub</h3>
+              <p class="text-gray-500 text-sm">Fashion E-commerce</p>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-6">
+            Built a scalable Shopify store with custom features, resulting in 300% increase in sales and 40% reduction in cart abandonment.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Sales Increase</span>
+              <span class="text-green-600 font-bold">+300%</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Conversion Rate</span>
+              <span class="text-blue font-bold">4.2%</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Project Duration</span>
+              <span class="text-gray-700 font-medium">3 Months</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-purple/20 transition-all duration-300 group">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple to-blue flex items-center justify-center">
+              <i class="fas fa-video text-white text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg">EduStream</h3>
+              <p class="text-gray-500 text-sm">EdTech Platform</p>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-6">
+            Created an educational video series with advanced editing and animations, increasing engagement by 180% and course completion rates by 70%.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">User Engagement</span>
+              <span class="text-green-600 font-bold">+180%</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Course Completion</span>
+              <span class="text-blue font-bold">70%</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Video Production</span>
+              <span class="text-gray-700 font-medium">50+ Hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section class="mb-20 fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Featured <span class="text-blue">Portfolio</span>
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Explore our diverse range of successful projects across different industries and technologies
+        </p>
+      </div>
+
+      <!-- Portfolio Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <button class="portfolio-filter-btn active px-5 py-2.5 rounded-lg bg-blue text-white font-medium text-sm hover:shadow-lg hover:shadow-blue/20 transition-all duration-300" 
+                data-filter="all">
+          <i class="fas fa-th-large mr-2"></i>All Projects
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-medium text-sm hover:border-blue hover:text-blue hover:bg-blue/5 transition-all duration-300" 
+                data-filter="web">
+          <i class="fas fa-globe mr-2"></i>Web Development
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-medium text-sm hover:border-blue hover:text-blue hover:bg-blue/5 transition-all duration-300" 
+                data-filter="ai">
+          <i class="fas fa-robot mr-2"></i>AI & Automation
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-medium text-sm hover:border-blue hover:text-blue hover:bg-blue/5 transition-all duration-300" 
+                data-filter="design">
+          <i class="fas fa-palette mr-2"></i>Creative Design
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-medium text-sm hover:border-blue hover:text-blue hover:bg-blue/5 transition-all duration-300" 
+                data-filter="marketing">
+          <i class="fas fa-bullhorn mr-2"></i>Digital Marketing
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-medium text-sm hover:border-blue hover:text-blue hover:bg-blue/5 transition-all duration-300" 
+                data-filter="video">
+          <i class="fas fa-video mr-2"></i>Video Editing
+        </button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 portfolio-grid">
+        
+        <!-- Project 1: Enterprise AI Platform -->
+        <div class="portfolio-item group" data-categories="ai web">
+          <div class="relative overflow-hidden rounded-xl mb-4">
+            <img src="assets/our work1.avif" 
+                 alt="Enterprise AI Platform"
+                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 bg-blue text-white text-xs font-semibold rounded-full">
+                AI & Automation
+              </span>
+              <span class="px-3 py-1 bg-mint text-gray-900 text-xs font-semibold rounded-full">
+                Web App
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <button class="portfolio-view-btn w-full">
+                <i class="fas fa-expand mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue transition-colors">Enterprise AI Platform</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Custom AI platform with machine learning models and real-time analytics dashboard.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-clock mr-1"></i>
+                <span>4 Months</span>
+              </div>
+              <div class="text-blue font-medium text-sm">
+                <i class="fas fa-chart-line mr-1"></i>
+                <span>+150% Efficiency</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: E-commerce Redesign -->
+        <div class="portfolio-item group" data-categories="web design marketing">
+          <div class="relative overflow-hidden rounded-xl mb-4">
+            <img src="assets/our work2.avif" 
+                 alt="E-commerce Redesign"
+                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 bg-purple text-white text-xs font-semibold rounded-full">
+                Web Development
+              </span>
+              <span class="px-3 py-1 bg-blue text-white text-xs font-semibold rounded-full">
+                UI/UX Design
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <button class="portfolio-view-btn w-full">
+                <i class="fas fa-expand mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue transition-colors">E-commerce Redesign</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Complete Shopify store redesign with improved UX and conversion optimization.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-clock mr-1"></i>
+                <span>2 Months</span>
+              </div>
+              <div class="text-green-600 font-medium text-sm">
+                <i class="fas fa-chart-line mr-1"></i>
+                <span>+300% Sales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Brand Identity Package -->
+        <div class="portfolio-item group" data-categories="design">
+          <div class="relative overflow-hidden rounded-xl mb-4">
+            <img src="assets/our work3.avif" 
+                 alt="Brand Identity"
+                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 bg-mint text-gray-900 text-xs font-semibold rounded-full">
+                Branding
+              </span>
+              <span class="px-3 py-1 bg-purple text-white text-xs font-semibold rounded-full">
+                Design System
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <button class="portfolio-view-btn w-full">
+                <i class="fas fa-expand mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue transition-colors">Complete Brand Identity</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Full brand identity package including logo, typography, and brand guidelines.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-clock mr-1"></i>
+                <span>6 Weeks</span>
+              </div>
+              <div class="text-blue font-medium text-sm">
+                <i class="fas fa-heart mr-1"></i>
+                <span>Client Love</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Video Marketing Campaign -->
+        <div class="portfolio-item group" data-categories="video marketing">
+          <div class="relative overflow-hidden rounded-xl mb-4">
+            <img src="assets/our work4.avif" 
+                 alt="Video Campaign"
+                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 bg-blue text-white text-xs font-semibold rounded-full">
+                Video Production
+              </span>
+              <span class="px-3 py-1 bg-mint text-gray-900 text-xs font-semibold rounded-full">
+                Marketing
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <button class="portfolio-view-btn w-full">
+                <i class="fas fa-expand mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue transition-colors">Video Marketing Campaign</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              12-video campaign with motion graphics and social media optimization.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-clock mr-1"></i>
+                <span>8 Weeks</span>
+              </div>
+              <div class="text-green-600 font-medium text-sm">
+                <i class="fas fa-eye mr-1"></i>
+                <span>2M+ Views</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: SaaS Dashboard -->
+        <div class="portfolio-item group" data-categories="web ai">
+          <div class="relative overflow-hidden rounded-xl mb-4">
+            <img src="assets/our work5.avif" 
+                 alt="SaaS Dashboard"
+                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 bg-purple text-white text-xs font-semibold rounded-full">
+                SaaS
+              </span>
+              <span class="px-3 py-1 bg-blue text-white text-xs font-semibold rounded-full">
+                Analytics
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <button class="portfolio-view-btn w-full">
+                <i class="fas fa-expand mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue transition-colors">Analytics Dashboard</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Real-time business intelligence dashboard with predictive analytics.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-clock mr-1"></i>
+                <span>3 Months</span>
+              </div>
+              <div class="text-blue font-medium text-sm">
+                <i class="fas fa-chart-pie mr-1"></i>
+                <span>Data-Driven</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Social Media Management -->
+        <div class="portfolio-item group" data-categories="marketing design">
+          <div class="relative overflow-hidden rounded-xl mb-4">
+            <img src="assets/our work6.avif" 
+                 alt="Social Media"
+                 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 bg-mint text-gray-900 text-xs font-semibold rounded-full">
+                Social Media
+              </span>
+              <span class="px-3 py-1 bg-blue text-white text-xs font-semibold rounded-full">
+                Growth
+              </span>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <button class="portfolio-view-btn w-full">
+                <i class="fas fa-expand mr-2"></i>View Details
+              </button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue transition-colors">Social Media Strategy</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Comprehensive social media management with content strategy and growth hacking.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-clock mr-1"></i>
+                <span>Ongoing</span>
+              </div>
+              <div class="text-green-600 font-medium text-sm">
+                <i class="fas fa-users mr-1"></i>
+                <span>+50K Followers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="text-center mt-12">
+        <button class="portfolio-load-more-btn px-8 py-3 border-2 border-blue text-blue font-semibold rounded-lg hover:bg-blue hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue/20">
+          <i class="fas fa-sync-alt mr-2"></i>Load More Projects
+        </button>
+      </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="mb-20 fade-in">
+      <div class="bg-gradient-to-br from-blue/5 to-mint/5 rounded-3xl p-8 md:p-12">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            What Our <span class="text-blue">Clients Say</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Don't just take our word for it. Here's what our clients have to say about working with ByondX.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue to-purple flex items-center justify-center text-white font-bold mr-4">
+                SA
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                <p class="text-gray-500 text-sm">CEO, TechScale AI</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-600 italic">
+              "ByondX transformed our operations with their AI platform. The team was professional, responsive, and delivered beyond expectations."
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-mint to-blue flex items-center justify-center text-gray-900 font-bold mr-4">
+                MR
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">Michael Roberts</h4>
+                <p class="text-gray-500 text-sm">Founder, StyleHub</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-600 italic">
+              "Our e-commerce sales tripled after their redesign. Their attention to detail and understanding of user experience is exceptional."
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple to-mint flex items-center justify-center text-white font-bold mr-4">
+                EC
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">Emma Chen</h4>
+                <p class="text-gray-500 text-sm">Director, EduStream</p>
+              </div>
+            </div>
+            <div class="flex text-yellow-400 mb-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-600 italic">
+              "The video series they produced for us was outstanding. Engagement skyrocketed and our course completion rates improved dramatically."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="mb-20 fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Our <span class="text-blue">Process</span>
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          We follow a proven methodology to ensure every project's success from concept to completion
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <!-- Step 1 -->
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:border-blue/20 transition-all duration-300 group">
+          <div class="w-16 h-16 rounded-xl bg-blue/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-blue/20 transition-all duration-300">
+            <i class="fas fa-lightbulb text-blue text-2xl"></i>
+          </div>
+          <div class="text-blue font-bold text-2xl mb-2">01</div>
+          <h3 class="font-bold text-gray-900 mb-3">Discovery</h3>
+          <p class="text-gray-600 text-sm">
+            Understanding your vision, goals, and requirements through detailed consultation.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:border-blue/20 transition-all duration-300 group">
+          <div class="w-16 h-16 rounded-xl bg-mint/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-mint/20 transition-all duration-300">
+            <i class="fas fa-pencil-ruler text-mint text-2xl"></i>
+          </div>
+          <div class="text-blue font-bold text-2xl mb-2">02</div>
+          <h3 class="font-bold text-gray-900 mb-3">Planning</h3>
+          <p class="text-gray-600 text-sm">
+            Creating detailed project plans, wireframes, and design mockups.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:border-blue/20 transition-all duration-300 group">
+          <div class="w-16 h-16 rounded-xl bg-purple/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-purple/20 transition-all duration-300">
+            <i class="fas fa-code text-purple text-2xl"></i>
+          </div>
+          <div class="text-blue font-bold text-2xl mb-2">03</div>
+          <h3 class="font-bold text-gray-900 mb-3">Development</h3>
+          <p class="text-gray-600 text-sm">
+            Agile development with regular updates and milestone deliveries.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:border-blue/20 transition-all duration-300 group">
+          <div class="w-16 h-16 rounded-xl bg-blue/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-blue/20 transition-all duration-300">
+            <i class="fas fa-rocket text-blue text-2xl"></i>
+          </div>
+          <div class="text-blue font-bold text-2xl mb-2">04</div>
+          <h3 class="font-bold text-gray-900 mb-3">Launch & Support</h3>
+          <p class="text-gray-600 text-sm">
+            Deployment, testing, and ongoing support with maintenance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+  </div>
+  <!-- CTA Section (Styled like upper CTA, content from lower) -->
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+    
+    <div class="bg-gradient-to-r from-[#3A7BFF] via-[#B39DFF] to-[#4DF2C0] 
+                rounded-3xl p-10 md:p-16 shadow-lg relative overflow-hidden">
+
+      <!-- Heading -->
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Ready to Start Your Next Project?
+      </h2>
+
+      <!-- Subtext -->
+      <p class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+        Join our growing list of satisfied clients. Let’s create something amazing together.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-5 justify-center">
+        
+        <!-- Primary Button -->
+        <a href="contact.html"
+           class="relative px-10 py-4 bg-[#3A7BFF] text-white font-bold text-lg 
+                  rounded-full shadow-md hover:bg-[#4DF2C0] transition-all duration-300">
+          Start Your Project
+          <span class="absolute inset-0 bg-white/10 rounded-full opacity-0 hover:opacity-30 transition-opacity duration-300"></span>
+        </a>
+
+        <!-- Secondary Button -->
+        <a href="contact.html"
+           class="relative px-10 py-4 border-2 border-white text-white font-bold text-lg 
+                  rounded-full hover:bg-white hover:text-[#3A7BFF] transition-all duration-300">
+          Schedule a Call
+        </a>
+
+      </div>
+
+      <!-- Contact Info -->
+      <p class="text-white/80 text-sm mt-8">
+        <i class="fas fa-phone-alt mr-2"></i> Call us at +1 (555) 123-4567
+      </p>
+
+    </div>
+  </div>
+</section>
+
+</section>
+
+<style>
+  /* Portfolio Item Styles */
+  .portfolio-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(58, 123, 255, 0.15);
+    border-color: #3A7BFF;
+  }
+  
+  /* Portfolio Filter Button Styles */
+  .portfolio-filter-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .portfolio-filter-btn.active {
+    background-color: #3A7BFF;
+    border-color: #3A7BFF;
+    color: white;
+  }
+  
+  /* View Button */
+  .portfolio-view-btn {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #3A7BFF;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .portfolio-view-btn:hover {
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  /* Load More Button */
+  .portfolio-load-more-btn {
+    transition: all 0.3s ease;
+  }
+  
+  .portfolio-load-more-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Animations */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Portfolio Grid Animation */
+  .portfolio-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .portfolio-item {
+      margin-bottom: 20px;
+    }
+    
+    .portfolio-filter-btn {
+      margin-bottom: 8px;
+    }
+  }
+  
+  /* Hover Effects */
+  .group:hover .group-hover\:scale-110 {
+    transform: scale(1.1);
+  }
+</style>
+
+<script>
+  // Portfolio Filter Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const loadMoreBtn = document.querySelector('.portfolio-load-more-btn');
+    let visibleItems = 6;
+    
+    // Filter functionality
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        
+        // Show/hide projects based on filter
+        portfolioItems.forEach((item, index) => {
+          const categories = item.getAttribute('data-categories');
+          
+          if (filterValue === 'all' || categories.includes(filterValue)) {
+            item.style.display = 'block';
+            item.style.animation = 'fadeInUp 0.6s ease forwards';
+            item.style.animationDelay = `${index * 0.1}s`;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Reset visible items count
+        visibleItems = 6;
+      });
+    });
+    
+    // Load More functionality
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        const hiddenItems = Array.from(portfolioItems).filter(item => 
+          item.style.display === 'none' || item.style.display === ''
+        );
+        
+        // Show next 3 items
+        hiddenItems.slice(0, 3).forEach((item, index) => {
+          item.style.display = 'block';
+          item.style.animation = 'fadeInUp 0.6s ease forwards';
+          item.style.animationDelay = `${index * 0.1}s`;
+          visibleItems++;
+        });
+        
+        // Hide button if no more items
+        if (visibleItems >= portfolioItems.length) {
+          this.style.display = 'none';
+        }
+      });
+    }
+    
+    // Portfolio item click for modal (placeholder)
+    portfolioItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        if (!e.target.closest('.portfolio-view-btn')) {
+          // Open project details modal or page
+          console.log('Open project details for:', this.querySelector('h3').textContent);
+          // You can implement a modal here
+        }
+      });
+    });
+    
+    // Initialize animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Set animation delays for portfolio items
+    portfolioItems.forEach((item, index) => {
+      item.style.animationDelay = `${index * 0.1}s`;
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Optional: Custom scrollbar for side scroller -->
+<style>
+  ::-webkit-scrollbar {
+    width: 6px; 
+    height: 6px;
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #3A7BFF; 
+    border-radius: 10px;
+  }
+</style>
+
+
+
+
+
+
+
+<!-- Same Footer as Before -->
+<footer class="bg-black text-white py-16 relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent"></div>
+  </div>
+
+  <!-- Top Gradient Border -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-emerald-400 to-purple-500"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <!-- Main Footer Grid -->
+    <div class="grid lg:grid-cols-5 gap-10 mb-12">
+      <!-- Brand Column -->
+      <div class="lg:col-span-2">
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-emerald-400 flex items-center justify-center">
+              <img src="assets/BRAND IDENTITY.jpg" alt="" style="border-radius: 50px;">
+            </div>
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-white to-emerald-200 bg-clip-text text-transparent">
+              ByondX Technologies
+            </h1>
+          </div>
+          <p class="text-gray-300 text-lg mb-4">Future-ready IT studio</p>
+          <p class="text-gray-400">
+            Transforming businesses with cutting-edge technology solutions and innovative digital experiences.
+          </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="border border-gray-800 rounded-xl p-6">
+          <h4 class="text-white font-semibold mb-3 flex items-center gap-2">
+            <i class="fas fa-envelope text-blue-400"></i>
+            Stay Updated
+          </h4>
+          <p class="text-gray-400 text-sm mb-4">Subscribe to our newsletter for tech insights</p>
+          <div class="flex gap-2">
+            <input type="email" 
+                   placeholder="Your email" 
+                   class="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <button class="px-5 py-3 bg-gradient-to-r from-blue-500 to-emerald-400 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 text-sm">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Links -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-6 pb-3 border-b border-gray-800 flex items-center gap-2">
+          <i class="fas fa-cube text-blue-400"></i>
+          Product
+        </h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" 
+               class="text-gray-300 hover:text-emerald-300 transition-all duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs transform -translate-x-2 opacity-0 
+                         group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></i>
+              <span class="transition-all duration-300 group-hover:translate-x-1">Services</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="pricing.html" 
+               class="text-gray-300 hover:text-emerald-300 transition-all duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs transform -translate-x-2 opacity-0 
+                         group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></i>
+              <span class="transition-all duration-300 group-hover:translate-x-1">Pricing</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" 
+               class="text-gray-300 hover:text-emerald-300 transition-all duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs transform -translate-x-2 opacity-0 
+                         group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"></i>
+              <span class="transition-all duration-300 group-hover:translate-x-1">Case Studies</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-6 pb-3 border-b border-gray-800 flex items-center gap-2">
+          <i class="fas fa-building text-emerald-400"></i>
+          Company
+        </h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="career.html" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              Careers
+            </a>
+          </li>
+          <li>
+            <a href="blog.html" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              Blog
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="text-gray-300 hover:text-emerald-300 transition-colors duration-300 group flex items-center gap-2">
+              <i class="fas fa-chevron-right text-blue-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Connect & Contact -->
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-6 pb-3 border-b border-gray-800 flex items-center gap-2">
+          <i class="fas fa-globe text-purple-400"></i>
+          Connect
+        </h3>
+        
+        <!-- Contact Info -->
+        <div class="space-y-4 mb-6">
+          <div class="flex items-center gap-3 text-gray-300">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+              <i class="fas fa-phone text-blue-400 text-sm"></i>
+            </div>
+            <span class="text-sm">+1 (555) 123-4567</span>
+          </div>
+          <div class="flex items-center gap-3 text-gray-300">
+            <div class="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center">
+              <i class="fas fa-envelope text-emerald-400 text-sm"></i>
+            </div>
+            <span class="text-sm">hello@byondx.com</span>
+          </div>
+          <div class="flex items-center gap-3 text-gray-300">
+            <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+              <i class="fas fa-map-marker-alt text-purple-400 text-sm"></i>
+            </div>
+            <span class="text-sm">Silicon Valley, CA</span>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-blue-500/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-blue-600/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-pink-500/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg bg-gray-900 hover:bg-blue-700/20 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-800 my-8 relative">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 via-emerald-400 to-purple-500 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <!-- Copyright -->
+      <div class="text-center md:text-left">
+        <p class="text-gray-400 text-sm">
+          © <span id="currentYear"></span> ByondX Technologies. All rights reserved.
+        </p>
+        <p class="text-gray-500 text-xs mt-1">
+          Crafting digital excellence since 2023
+        </p>
+      </div>
+
+      <!-- Legal Links -->
+      <div class="flex gap-6">
+        <a href="privacy_policy.html" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors duration-300">
+          Privacy Policy
+        </a>
+        <a href="term_and_condition.html" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors duration-300">
+          Terms of Service
+        </a>
+        <a href="refund_policy.html" class="text-gray-400 hover:text-emerald-300 text-sm transition-colors duration-300">
+          Refund Policy
+        </a>
+      </div>
+
+      <!-- Back to Top -->
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+              class="px-4 py-4 rounded-full border border-gray-800 text-gray-400 hover:text-white hover:border-blue-500/50 transition-all duration-300 text-sm flex items-center gap-2">
+        <i class="fas fa-arrow-up"></i>
+        Back to Top
+      </button>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="js/data.js"></script>
+
+<!-- SCRIPT -->
+<script>
+  const clientData = [
+    {name:"John Smith", title:"CTO at FinTech Corp", image:"assets/clietn say.jpeg"},
+    {name:"Sarah Johnson", title:"Head of Design at CreativeHub", image:"assets/avatar b1.jpeg"},
+    {name:"Daniel Foster", title:"Product Manager at Amazon", image:"assets/avatar b4.jpeg"},
+    {name:"Michael Chen", title:"CTO at TechVision", image:"assets/clietn say1.jpeg"}
+  ];
+
+  const slides = document.querySelectorAll(".slide");
+  const dynamicClient = document.getElementById("dynamicClient");
+  const slideCounter = document.getElementById("slideCounter");
+  const indicatorsContainer = document.getElementById("indicatorsContainer");
+  let current = 0;
+
+  // Create indicators
+  slides.forEach((_, i) => {
+    const indicator = document.createElement("div");
+    indicator.className = `indicator ${i===0?'bg-[#3A7BFF] active':'bg-black/30'}`;
+    indicator.dataset.index = i;
+    indicatorsContainer.appendChild(indicator);
+  });
+  const indicators = document.querySelectorAll(".indicator");
+
+  function showSlide(index) {
+    slides.forEach((s,i)=>s.classList.toggle("hidden", i!==index));
+    slides.forEach((s,i)=>s.classList.toggle("active", i===index));
+
+    const img = dynamicClient.querySelector('img');
+    img.style.opacity='0';
+    setTimeout(()=>{
+      img.src = clientData[index].image;
+      img.alt = clientData[index].name;
+      img.style.opacity='1';
+    },300);
+
+    indicators.forEach((ind,i)=>{
+      if(i===index){
+        ind.classList.add('bg-[#3A7BFF]','active');
+        ind.classList.remove('bg-black/30');
+      }else{
+        ind.classList.remove('bg-[#3A7BFF]','active');
+        ind.classList.add('bg-black/30');
+      }
+    });
+
+    slideCounter.textContent = `${index+1} / ${slides.length}`;
+    current = index;
+  }
+
+  document.getElementById("nextBtn").onclick = ()=> showSlide((current+1)%slides.length);
+  document.getElementById("prevBtn").onclick = ()=> showSlide((current-1+slides.length)%slides.length);
+
+  indicators.forEach(ind=>{
+    ind.addEventListener("click",(e)=>{
+      showSlide(parseInt(e.target.dataset.index));
+    });
+  });
+
+  // Auto slide
+  let autoSlide = setInterval(()=> showSlide((current+1)%slides.length),8000);
+  const slider = document.getElementById("testimonialSlider");
+  slider.addEventListener("mouseenter", ()=> clearInterval(autoSlide));
+  slider.addEventListener("mouseleave", ()=> autoSlide = setInterval(()=> showSlide((current+1)%slides.length),8000));
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e)=>{
+    if(e.key==="ArrowLeft"||e.key==="ArrowUp") showSlide((current-1+slides.length)%slides.length);
+    if(e.key==="ArrowRight"||e.key==="ArrowDown") showSlide((current+1)%slides.length);
+  });
+
+  // Initialize
+  showSlide(current);
+</script>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('slider');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    
+    const cards = document.querySelectorAll('.slider-card');
+    const cardWidth = cards[0].offsetWidth + 24; // card width + gap
+    let currentPosition = 0;
+    let autoSlideInterval;
+    
+    // Auto slide functionality
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        slideToNext();
+      }, 4000); // Slide every 4 seconds
+    }
+    
+    function stopAutoSlide() {
+      clearInterval(autoSlideInterval);
+    }
+    
+    // Slide to next card
+    function slideToNext() {
+      currentPosition += cardWidth;
+      
+      // Check if we've reached the end
+      if (currentPosition > slider.scrollWidth - slider.clientWidth) {
+        currentPosition = 0; // Reset to start
+      }
+      
+      slider.scrollTo({
+        left: currentPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Slide to previous card
+    function slideToPrev() {
+      currentPosition -= cardWidth;
+      
+      // Check if we're at the start
+      if (currentPosition < 0) {
+        currentPosition = slider.scrollWidth - slider.clientWidth;
+      }
+      
+      slider.scrollTo({
+        left: currentPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Manual navigation
+    prevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      slideToPrev();
+      setTimeout(startAutoSlide, 5000); // Restart after 5 seconds
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      slideToNext();
+      setTimeout(startAutoSlide, 5000); // Restart after 5 seconds
+    });
+    
+    // Pause auto-slide on hover
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+    
+    // Initialize auto slide
+    startAutoSlide();
+  });
+</script>
+
+
+<script>
+function playHeroVideo() {
+  const img = document.getElementById("thumbImg");
+  const video = document.getElementById("heroVideo");
+  const playButton = event.currentTarget;
+
+  // Hide thumbnail and play button
+  img.style.opacity = "0";
+  img.style.transition = "opacity 0.3s ease";
+  playButton.style.opacity = "0";
+  playButton.style.pointerEvents = "none";
+  
+  // Show and play video
+  setTimeout(() => {
+    img.style.display = "none";
+    playButton.style.display = "none";
+    video.classList.remove("hidden");
+    video.style.opacity = "0";
+    video.style.transition = "opacity 0.5s ease";
+    
+    setTimeout(() => {
+      video.style.opacity = "1";
+      video.play().catch(e => console.log("Autoplay prevented:", e));
+    }, 50);
+  }, 300);
+}
+
+// Add hover effect to video container
+document.addEventListener('DOMContentLoaded', function() {
+  const videoContainer = document.querySelector('.relative.rounded-2xl');
+  
+  if (videoContainer) {
+    videoContainer.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.02) translateY(-3px)';
+    });
+    
+    videoContainer.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  }
+});
+</script>
+
+
+
+<!-- CountUp Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".countup");
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-target");
+      let count = 0;
+      const increment = Math.ceil(target / 100); // speed
+      const updateCount = () => {
+        count += increment;
+        if(count > target) count = target;
+        counter.textContent = count;
+        if(count < target) {
+          requestAnimationFrame(updateCount);
+        }
+      };
+      updateCount();
+    });
+  });
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
